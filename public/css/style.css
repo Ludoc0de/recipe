@@ -1,0 +1,9 @@
+.img__size {
+    width:30px;
+}
+
+.img__btn{
+    /* border: none; */
+    /* background-color: transparent; */
+    cursor: pointer;
+}

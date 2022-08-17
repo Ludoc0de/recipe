@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Mes recettes</title>
+</head>
+<body>
+    <h1>Mes recettes !</h1>
+    <% for (let i=0; i<food.length; i++) {%>
+        <section>
+            <h2 class="title"><%= food[i].title %></h2>
+            <p><%= food[i].recipe %></p>
+
+            <button class="img__btn img__btn-update">
+                Update article
+            </button>
+            <button class="img__btn img__btn-delete">
+                Delete article
+            </button>
+            <br>
+        </section>
+    <% } %>
+    <form action="/add" method="POST">
+        <input type="text" placeholder="title" name="title">
+        <textarea name="recipe" rows="4" cols="50">
+        </textarea>
+        <button type="submit">send</button>
+    </form>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
