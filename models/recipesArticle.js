@@ -10,7 +10,7 @@ const recipeSchema = new mongoose.Schema({
     },
     date:{
         type:Date,
-        defaut:Date
+        defaut:Date.now
     }
 })
-module.exports = mongoose.model('RecipesArticle', recipeSchema);
+module.exports = mongoose.model('RecipesArticle', recipeSchema, 'recipesArticles');
