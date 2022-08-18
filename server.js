@@ -1,8 +1,6 @@
 // "start": "npm run dev"
 
 const express = require('express');
-//const bodyParser = require('body-parser')
-//const { MongoClient } = require('mongodb')
 const app = express();
 const PORT = 3100;
 const mongoose = require('mongoose');
@@ -11,12 +9,6 @@ const homeRoutes =require('./routes/home');
 const editRoutes =require('./routes/edit');
 require('dotenv').config({path: './config/.env'});
 
-//Connect to Mongo
-//let db,  
-//    dbConnectionString = process.env.DB_STRING,
-//    dbName = 'recipe',
-//    dbCollection ='food'
-
 //Connect to Mongo with Mongoose
 connectDB()
 
@@ -24,39 +16,12 @@ connectDB()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
-//app.use(bodyParser.json())
 
 //Set Routes
 app.use('/', homeRoutes)
-app.use('/edit', editRoutes)
+//app.use('/edit', editRoutes)
 
 /*
-MongoClient.connect(dbConnectionString, {useUnifiedTopology: true}) 
-    .then(client =>{
-        console.log('Connected to Database !')
-        const db = client.db(dbName)
-        const foodCollection =db.collection(dbCollection)
-
-        app.use(bodyParser.urlencoded({extended: true}))
-
-        
-        app.get('/', (req, res) => {
-            foodCollection.find().toArray()
-                .then(results =>{
-                    res.render('index.ejs', {food: results})
-                })
-                .catch(error => console.error(error))
-        })
-        
-        app.post('/add', (req, res)=>{
-            foodCollection.insertOne({ title: req.body.title, 
-                recipe:req.body.recipe})
-                .then(result =>{
-                    res.redirect('/')
-                })
-                .catch(error => console.error(error))
-        })
-        
         app.delete('/delete', (req, res)=>{
             foodCollection.deleteOne(
                 {title: req.body.title}
@@ -88,5 +53,6 @@ MongoClient.connect(dbConnectionString, {useUnifiedTopology: true})
         })
 })
 */
+
 //start server
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
