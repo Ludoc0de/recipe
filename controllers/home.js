@@ -1,3 +1,4 @@
+// Controllers to models
 const RecipesArticle = require('../models/recipesArticle')
 
 module.exports = {
