@@ -7,6 +7,6 @@ const homeController = require('../controllers/home')
 
 //
 router.get('/', homeController.getIndex)
-//router.post('/add', homeController.creatArticle)
+router.post('/', homeController.createArticle)
 
 module.exports = router
