@@ -10,10 +10,10 @@
 </head>
 <body>
     <h1>Mes recettes !</h1>
-    <% for (let i=0; i<food.length; i++) {%>
+    <% for (let i=0; i<recipe.length; i++) {%>
         <section>
-            <h2 class="title"><%= food[i].title %></h2>
-            <p><%= food[i].recipe %></p>
+            <h2 class="title"><%= recipe[i].title %></h2>
+            <p><%= recipe[i].article %></p>
 
             <button class="img__btn img__btn-update">
                 Update article
@@ -26,7 +26,7 @@
     <% } %>
     <form action="/add" method="POST">
         <input type="text" placeholder="title" name="title">
-        <textarea name="recipe" rows="4" cols="50">
+        <textarea name="article" rows="4" cols="50">
         </textarea>
         <button type="submit">send</button>
     </form>
