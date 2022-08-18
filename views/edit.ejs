@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Mes recettes</title>
+</head>
+<body>
+    <% for (let i=0; i<recipe.length; i++) {%>
+        <% if (recipe._id==idArticle) { %>
+        <section>
+            <form action="/edit/<%= recipe._id %>" method="POST">
+                <input type="text" value="<%= recipe.title %>" name="title">
+                <textarea rows="6" cols="50" name="article"><%= recipe.article %></textarea>
+                <button type="submit" class="confirm">Confirm</button>
+                <a href="/" class="cancel">Cancel</a>
+            </form>
+        </section>
+        <!-- <section>
+            <h2 class="title"><%= recipe[i].title %></h2>
+            <p><%= recipe[i].article %></p>
+
+            <button class="img__btn img__btn-update">
+                Update article
+            </button>
+            <button class="img__btn img__btn-delete">
+                Delete article
+            </button>
+            <br>
+        </section>
+    <% } %>
+    <form action="/" method="POST">
+        <input type="text" placeholder="title" name="title">
+        <textarea name="article" rows="4" cols="50">
+        </textarea>
+        <button type="submit">send</button> -->
+    </form>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
