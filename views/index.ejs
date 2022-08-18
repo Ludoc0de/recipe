@@ -12,15 +12,9 @@
     <h1>Mes recettes !</h1>
     <% for (let i=0; i<recipe.length; i++) {%>
         <section>
-            <h2 class="title"><%= recipe[i].title %></h2>
-            <p><%= recipe[i].article %></p>
-
-            <button class="img__btn img__btn-update">
-                Update article
-            </button>
-            <button class="img__btn img__btn-delete">
-                Delete article
-            </button>
+            <a href="/edit/<%= recipe[i]._id %>" class="edit">
+                <h2 class="title"><%= recipe[i].title %></h2>
+            </a>
             <br>
         </section>
     <% } %>
