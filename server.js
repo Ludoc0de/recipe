@@ -1,18 +1,33 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const { MongoClient } = require('mongodb')
-const app = express()
-require('dotenv').config()
+const express = require('express');
+//const bodyParser = require('body-parser')
+//const { MongoClient } = require('mongodb')
+const app = express();
+const PORT = 3100;
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-let db,  
-    dbConnectionString = process.env.DB_STRING,
-    dbName = 'recipe',
-    dbCollection ='food'
+//Connect to Mongo
+//let db,  
+//    dbConnectionString = process.env.DB_STRING,
+//    dbName = 'recipe',
+//    dbCollection ='food'
 
-app.set('view engine', 'ejs')
-app.use(express.static("public"))
-app.use(bodyParser.json())
 
+//set middleware
+//app.set('view engine', 'ejs')
+//app.use(express.static('public'))
+//app.use(express.urlencoded({ extended: true}))
+//app.use(bodyParser.json())
+
+//Connect to Mongo with Mongoose
+mongoose.connect(
+    process.env.DB_STRING,
+    { useNewUrlParser: true },
+    () => {console.log("Connected to db");}
+)
+
+
+/*
 MongoClient.connect(dbConnectionString, {useUnifiedTopology: true}) 
     .then(client =>{
         console.log('Connected to Database !')
@@ -68,10 +83,7 @@ MongoClient.connect(dbConnectionString, {useUnifiedTopology: true})
             })
             .catch(error => console.error(error))
         })
-        */
-        app.listen(3000, function(){
-            console.log("listening on 3000")
-        })
-        
-    })
-    .catch(error => console.error(error))
+})
+*/
+//start server
+app.listen(PORT, () => console.log(`listening on ${PORT}`));
