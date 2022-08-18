@@ -31,7 +31,6 @@ MongoClient.connect(dbConnectionString, {useUnifiedTopology: true})
         })
         
         app.post('/add', (req, res)=>{
-            console.log(req.body)
             foodCollection.insertOne({ title: req.body.title, 
                 recipe:req.body.recipe})
                 .then(result =>{
@@ -54,12 +53,11 @@ MongoClient.connect(dbConnectionString, {useUnifiedTopology: true})
 
         /* update
         app.put('/updateOneLike', (req, res)=>{
-            bakeryCollection.updateOne({
-                boulangerie: req.body.bakeryName,  
-                ville: req.body.bakeryCity, 
-                likes: req.body.bakeryLikes},{
+            foodCollection.updateOne({
+                title: req.body.title,  
+                recipe:req.body.recipe},{
             $set: {
-                likes:req.body.bakeryLikes + 1
+                recipe:"??"
             }
             },{
                 upsert: false
