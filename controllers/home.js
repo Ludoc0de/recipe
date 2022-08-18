@@ -1,4 +1,4 @@
-// Controllers to models
+// Home controllers to models
 const RecipesArticle = require('../models/recipesArticle')
 
 module.exports = {
@@ -25,13 +25,6 @@ module.exports = {
             if(error) return res.status(500).send(error);
             res.redirect('/');
         }
-            
-        // foodCollection.insertOne({ title: req.body.title, 
-        //     recipe:req.body.recipe})
-        //     .then(result =>{
-        //         res.redirect('/')
-        //     })
-        //     .catch(error => console.error(error))
     }
 
 }
