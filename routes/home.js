@@ -1,4 +1,4 @@
-//Routes
+//Routes home
 //Get request home
 //Post artile
 
