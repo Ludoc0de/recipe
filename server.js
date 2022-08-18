@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 const PORT = 3100;
 const mongoose = require('mongoose');
-require('dotenv').config();
+const connectDB = require('./config/database');
+require('dotenv').config({path: './config/.env'});
 
 //Connect to Mongo
 //let db,  
@@ -14,17 +15,13 @@ require('dotenv').config();
 
 
 //set middleware
-//app.set('view engine', 'ejs')
-//app.use(express.static('public'))
-//app.use(express.urlencoded({ extended: true}))
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true}))
 //app.use(bodyParser.json())
 
 //Connect to Mongo with Mongoose
-mongoose.connect(
-    process.env.DB_STRING,
-    { useNewUrlParser: true },
-    () => {console.log("Connected to db");}
-)
+connectDB()
 
 
 /*
@@ -86,4 +83,4 @@ MongoClient.connect(dbConnectionString, {useUnifiedTopology: true})
 })
 */
 //start server
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
