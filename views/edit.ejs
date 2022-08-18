@@ -9,36 +9,20 @@
     <title>Mes recettes</title>
 </head>
 <body>
-    <% for (let i=0; i<recipe.length; i++) {%>
-        <% if (recipe._id==idArticle) { %>
-        <section>
-            <form action="/edit/<%= recipe._id %>" method="POST">
-                <input type="text" value="<%= recipe.title %>" name="title">
-                <textarea rows="6" cols="50" name="article"><%= recipe.article %></textarea>
-                <button type="submit" class="confirm">Confirm</button>
-                <a href="/" class="cancel">Cancel</a>
-            </form>
-        </section>
-        <!-- <section>
-            <h2 class="title"><%= recipe[i].title %></h2>
-            <p><%= recipe[i].article %></p>
-
-            <button class="img__btn img__btn-update">
-                Update article
-            </button>
-            <button class="img__btn img__btn-delete">
-                Delete article
-            </button>
-            <br>
-        </section>
-    <% } %>
-    <form action="/" method="POST">
-        <input type="text" placeholder="title" name="title">
-        <textarea name="article" rows="4" cols="50">
-        </textarea>
-        <button type="submit">send</button> -->
-    </form>
-
+    <section>
+        <h1>test</h1>
+        <% for (let i=0; i<recipe.length; i++) {%>
+            <% if (recipe[i]._id==idArticle) { %>
+                <form action="/edit/<%= recipe[i]._id %>" method="POST">
+                    <input type="text" value="<%= recipe[i].title %>" name="title">
+                    <textarea rows="6" cols="50" name="article"><%= recipe[i].article %></textarea>
+                    <button type="submit" class="confirm">Confirm</button>
+                    <a href="/" class="cancel">Cancel</a>
+                    <a href="edit/remove" class="delete">Delete</a>
+                </form>
+            <% } %>
+        <% } %>
+    </section>
     <script src="/js/main.js"></script>
 </body>
 </html>
