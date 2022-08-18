@@ -7,6 +7,8 @@ const app = express();
 const PORT = 3100;
 const mongoose = require('mongoose');
 const connectDB = require('./config/database');
+const homeRoutes =require('./routes/home');
+const editRoutes =require('./routes/edit');
 require('dotenv').config({path: './config/.env'});
 
 //Connect to Mongo
@@ -15,6 +17,8 @@ require('dotenv').config({path: './config/.env'});
 //    dbName = 'recipe',
 //    dbCollection ='food'
 
+//Connect to Mongo with Mongoose
+connectDB()
 
 //set middleware
 app.set('view engine', 'ejs')
@@ -22,9 +26,9 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
 //app.use(bodyParser.json())
 
-//Connect to Mongo with Mongoose
-connectDB()
-
+//Set Routes
+app.use('/', homeRoutes)
+app.use('/edit', editRoutes)
 
 /*
 MongoClient.connect(dbConnectionString, {useUnifiedTopology: true}) 
