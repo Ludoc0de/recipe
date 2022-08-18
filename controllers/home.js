@@ -1,11 +1,16 @@
 const RecipesArticle = require('../models/recipesArticle')
 
 module.exports = {
-    getIndex: (req, res) => {
-        RecipesArticle.find()
+    getIndex: async (req, res) => {
+        try{
+            RecipesArticle.find()
             .then(results =>{
                 res.render('index.ejs', {food: results})
             })
-            .catch(error => console.error(error))
+        } catch(error) {
+            if(error){
+                console.error(error)
+            } 
+        }
     }
 }
