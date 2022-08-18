@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true}))
 
 //Set Routes
 app.use('/', homeRoutes)
-//app.use('/edit', editRoutes)
+app.use('/edit', editRoutes)
 
 /*
         app.delete('/delete', (req, res)=>{
