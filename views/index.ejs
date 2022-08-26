@@ -15,18 +15,19 @@
     </a>
     <% for (let i=0; i<recipe.length; i++) {%>
         <section>
-            <a href="/edit/<%= recipe[i]._id %>" class="edit">
+            <a href="/recipe/<%= recipe[i]._id %>" class="edit">
                 <h2 class="title"><%= recipe[i].title %></h2>
             </a>
             <br>
         </section>
     <% } %>
-    <form action="/" method="POST">
+    <!-- edit page -->
+    <!-- <form action="/" method="POST">
         <input type="text" placeholder="title" name="title">
         <textarea name="article" rows="4" cols="50">
         </textarea>
         <button type="submit">send</button>
-    </form>
+    </form> -->
 
     <script src="/js/main.js"></script>
 </body>
