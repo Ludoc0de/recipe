@@ -10,19 +10,40 @@
 </head>
 <body>
     <section>
-        <h1>test</h1>
+        <h2>Admin</h2>
         <% for (let i=0; i<recipe.length; i++) {%>
-            <% if (recipe[i]._id==idArticle) { %>
-                <form action="/edit/<%= recipe[i]._id %>" method="POST">
-                    <input type="text" value="<%= recipe[i].title %>" name="title">
-                    <textarea rows="6" cols="50" name="article"><%= recipe[i].article %></textarea>
-                    <button type="submit" class="confirm">Confirm</button>
-                    <a href="/" class="cancel">Cancel</a>
-                    <a href="edit/remove" class="delete">Delete</a>
-                </form>
+            <section>
+                <!-- update href to the view where gonna edit -->
+                <a href="/recipe/<%= recipe[i]._id %>" class="edit">
+                    <h2 class="title">
+                        <%= recipe[i].title %>
+                    </h2>
+                </a>
+                <br>
+            </section>
             <% } %>
-        <% } %>
     </section>
+    <section>
+        <h2>Post new article</h2>
+        <form action="/" method="POST">
+                <input type="text" placeholder="title" name="title">
+                <textarea name="article" rows="4" cols="50">
+                </textarea>
+                <button type="submit">send</button>
+            </form>
+    </section>
+    <!-- add to the view where gonna edit -->
+    <!-- <% for (let i=0; i<recipe.length; i++) {%>
+                <% if (recipe[i]._id==idArticle) { %>
+                    <form action="/edit/<%= recipe[i]._id %>" method="POST">
+                        <input type="text" value="<%= recipe[i].title %>" name="title">
+                        <textarea rows="6" cols="50" name="article"><%= recipe[i].article %></textarea>
+                        <button type="submit" class="confirm">Confirm</button>
+                        <a href="/" class="cancel">Cancel</a>
+                        <a href="edit/remove" class="delete">Delete</a>
+                    </form>
+                <% } %>
+            <% } %> -->
     <script src="/js/main.js"></script>
 </body>
 </html>
