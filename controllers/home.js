@@ -10,21 +10,6 @@ module.exports = {
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
-    }, 
-    createArticle: async (req, res)=>{
-        const recipe = new RecipesArticle(
-            { 
-                title: req.body.title, 
-                article:req.body.article
-            })
-        try {
-                await recipe.save();
-                console.log(recipe)
-                res.redirect('/')
-        } catch (error) {
-            if(error) return res.status(500).send(error);
-            res.redirect('/');
-        }
     }
 
 }
