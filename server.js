@@ -7,7 +7,6 @@ const connectDB = require('./config/database');
 const homeRoutes =require('./routes/home');
 const recipeRoutes =require('./routes/recipe');
 const editRoutes =require('./routes/edit');
-const editRoutes = require('./routes/edit');
 const authRoutes = require('./routes/auth');
 require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
