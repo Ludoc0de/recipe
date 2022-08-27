@@ -7,6 +7,8 @@ const connectDB = require('./config/database');
 const homeRoutes =require('./routes/home');
 const recipeRoutes =require('./routes/recipe');
 const editRoutes =require('./routes/edit');
+const editRoutes = require('./routes/edit');
+const authRoutes = require('./routes/auth');
 require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
 const session = require('express-session')
@@ -21,11 +23,25 @@ connectDB()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
+//session middleware
+app.use(
+    session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({
+        mongoUrl: process.env.DB_STRING
+        })
+    })
+)
+app.use(passport.initialize())
+app.use(passport.session())
 
 //Set Routes
 app.use('/', homeRoutes)
 app.use('/recipe', recipeRoutes)
 app.use('/edit', editRoutes)
+app.use('/auth', authRoutes)
 
 /*
         app.delete('/delete', (req, res)=>{
