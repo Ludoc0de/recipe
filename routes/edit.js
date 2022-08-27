@@ -8,6 +8,7 @@ const editController = require('../controllers/edit')
 
 //Route to the controllers
 router.get('/', editController.getEdit)
+router.post('/', editController.createArticle)
 // router.post('/', editController)
 
 module.exports = router
