@@ -1,5 +1,4 @@
 // "start": "npm run dev"
-
 const express = require('express');
 const app = express();
 const PORT = 3100;
@@ -9,6 +8,11 @@ const homeRoutes =require('./routes/home');
 const recipeRoutes =require('./routes/recipe');
 const editRoutes =require('./routes/edit');
 require('dotenv').config({path: './config/.env'});
+const passport = require('passport')
+const session = require('express-session')
+const MongoStore = require('connect-mongo');
+const { request } = require('express');
+require('./config/passport')(passport)
 
 //Connect to Mongo with Mongoose
 connectDB()
