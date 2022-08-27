@@ -1,4 +1,4 @@
-// "start": "npm run dev"
+ // "start": "npm run dev"
 const express = require('express');
 const app = express();
 const PORT = 3100;
@@ -8,6 +8,8 @@ const homeRoutes =require('./routes/home');
 const recipeRoutes =require('./routes/recipe');
 const editRoutes =require('./routes/edit');
 const authRoutes = require('./routes/auth');
+// const addRoutes = require('./routes/add');
+const updateRoutes = require('./routes/update');
 require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
 const session = require('express-session')
@@ -41,6 +43,8 @@ app.use('/', homeRoutes)
 app.use('/recipe', recipeRoutes)
 app.use('/edit', editRoutes)
 app.use('/auth', authRoutes)
+// app.use('/add', addRoutes)
+app.use('/update', updateRoutes)
 
 /*
         app.delete('/delete', (req, res)=>{
