@@ -3,11 +3,12 @@ const RecipesArticle = require('../models/recipesArticle')
 
 module.exports = {
     getEdit: async (req, res) => {
-        const id = req.params.id;
+        // const id = req.params.id;
         try{
             const recipes = await
             RecipesArticle.find()
-            res.render('edit.ejs', {recipe: recipes, idArticle: id})
+            // res.render('edit.ejs', {recipe: recipes, idArticle: id})
+            res.render('edit.ejs', {recipe: recipes})
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
