@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/database');
 const homeRoutes =require('./routes/home');
 const recipeRoutes =require('./routes/recipe');
-const loginRoutes =require('./routes/login');
 const editRoutes =require('./routes/edit');
 require('dotenv').config({path: './config/.env'});
 
@@ -22,7 +21,6 @@ app.use(express.urlencoded({ extended: true}))
 //Set Routes
 app.use('/', homeRoutes)
 app.use('/recipe', recipeRoutes)
-app.use('/login', loginRoutes)
 app.use('/edit', editRoutes)
 
 /*
