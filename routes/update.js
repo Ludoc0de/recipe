@@ -6,7 +6,7 @@ const updateController = require('../controllers/update')
 
 //Route to the controllers
 router.get('/:id', updateController.getUpdate)
-router.put('/:id', updateController.updateArticle)
+router.post('/:id', updateController.updateArticle)
 router.get('/remove/:id',updateController.deleteArticle)
 // router.post('/:id', putController.postPut)
 
