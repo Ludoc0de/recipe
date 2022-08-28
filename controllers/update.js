@@ -23,7 +23,15 @@ module.exports = {
                 if (err) return res.status(500).send(err);
                 res.redirect("/edit");
             });
-    } 
+    },
+    deleteArticle: (req, res) => {
+        const id = req.params.id;
+        RecipesArticle.findByIdAndRemove(
+            id, err => {
+            if (err) return res.send(500, err);
+            res.redirect("/edit");
+        });
+    },
     // getEdit: (req, res) => {
     //     const id = req.params.id;
     //     console.log(id)
