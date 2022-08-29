@@ -1,4 +1,4 @@
-//Routes Auth
+//Auth routes
 const express = require('express')
 const passport = require('passport')
 const router = express.Router()
@@ -15,8 +15,6 @@ router.get('/google/callback',
 
 //Logout User
 //route /auth/logout
-//!Change: Passport 0.6 requires logout to be async
 router.get('/logout', authController.logout)
-
 
 module.exports = router
