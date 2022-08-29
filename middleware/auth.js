@@ -1,6 +1,7 @@
-//auth middleware
+//auth middleware, protect our routes
 
 module.exports = {
+    //check if we login
     userAuth: function(req, res, next) {
         if(req.isAuthenticated()){
             return next()
