@@ -11,10 +11,7 @@ router.get('/google', passport.authenticate('google', { scope: ['profile']}))
 //Google auth callback
 //GET /auth/google/callback
 router.get('/google/callback', 
-    passport.authenticate('google', {failureRedirect: '/'}), (req,res) => {
-        res.redirect('/edit')
-    }
-)
+    passport.authenticate('google', {failureRedirect: '/'}), authController.editConnect)
 
 //Logout User
 //route /auth/logout
