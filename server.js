@@ -1,4 +1,6 @@
  // "start": "npm run dev"
+
+ //set require, get app, routes and path
 const express = require('express');
 const app = express();
 const PORT = 3100;
