@@ -2,6 +2,7 @@
 const express = require('express')
 const passport = require('passport')
 const router = express.Router()
+const authController = require('../controllers/auth')
 
 //Auth with Google
 //GET /auth/google
@@ -18,12 +19,7 @@ router.get('/google/callback',
 //Logout User
 //route /auth/logout
 //!Change: Passport 0.6 requires logout to be async
-router.get('/logout', (req,res) => {
-    req.logout(function(err) {
-        if (err) { return next(err); }
-        res.redirect('/');
-      });
-})
+router.get('/logout', authController.logout)
 
 
 module.exports = router
