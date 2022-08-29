@@ -11,6 +11,9 @@
 <body>
     <section>
         <h2>Admin</h2>
+        <a href="/auth/logout">
+            logout
+        </a>
         <% for (let i=0; i<recipe.length; i++) {%>
             <section>
                 <a href="/update/<%= recipe[i]._id %>" class="edit">
