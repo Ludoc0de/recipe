@@ -8,7 +8,6 @@ const homeRoutes =require('./routes/home');
 const recipeRoutes =require('./routes/recipe');
 const editRoutes =require('./routes/edit');
 const authRoutes = require('./routes/auth');
-// const addRoutes = require('./routes/add');
 const updateRoutes = require('./routes/update');
 require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
@@ -24,7 +23,7 @@ connectDB()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
-//session middleware
+//session middleware, keep login after refresh
 app.use(
     session({
         secret: 'keyboard cat',
@@ -43,41 +42,8 @@ app.use('/', homeRoutes)
 app.use('/recipe', recipeRoutes)
 app.use('/edit', editRoutes)
 app.use('/auth', authRoutes)
-// app.use('/add', addRoutes)
 app.use('/update', updateRoutes)
 
-/*
-        app.delete('/delete', (req, res)=>{
-            foodCollection.deleteOne(
-                {title: req.body.title}
-            )
-            .then(result => {
-                console.log("delete")
-            res.json('Delete article')
-            })
-            .catch(error => console.error(error))
-        })
-        
-
-        /* update
-        app.put('/updateOneLike', (req, res)=>{
-            foodCollection.updateOne({
-                title: req.body.title,  
-                recipe:req.body.recipe},{
-            $set: {
-                recipe:"??"
-            }
-            },{
-                upsert: false
-            })
-            .then(result => {
-                console.log("update")
-            res.json('Like Added')
-            })
-            .catch(error => console.error(error))
-        })
-})
-*/
 
 //start server
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
