@@ -2,6 +2,7 @@
 const RecipesArticle = require('../models/recipesArticle')
 
 module.exports = {
+    // Display all recipes
     getIndex: async (req, res) => {
         try{
             const recipes = await

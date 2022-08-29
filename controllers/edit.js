@@ -2,6 +2,7 @@
 const RecipesArticle = require('../models/recipesArticle')
 
 module.exports = {
+    //Display all recipes
     getEdit: async (req, res) => {
         try{
             const recipes = await
@@ -10,16 +11,16 @@ module.exports = {
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
-    }, 
+    },
+    //Create article 
     createArticle: async (req, res)=>{
         const recipe = new RecipesArticle(
             { 
                 title: req.body.title, 
                 article:req.body.article
-            })
+            });
         try {
                 await recipe.save();
-                console.log(recipe)
                 res.redirect('/')
         } catch (error) {
             if(error) return res.status(500).send(error);

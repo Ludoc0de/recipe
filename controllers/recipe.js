@@ -2,6 +2,7 @@
 const RecipesArticle = require('../models/recipesArticle')
 
 module.exports = {
+    //Display recipe/id
     getRecipe: async (req, res) => {
         const id = req.params.id;
         try{
