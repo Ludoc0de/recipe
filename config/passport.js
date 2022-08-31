@@ -8,12 +8,12 @@ module.exports = function(passport) {
         callbackURL: '/auth/google/callback'
     },
     async (accessToken, refreshToken, profile, done) => {
-       const newUser = {
-        googleId: profile.id,
-        displayName: profile.displayName,
-        firstName: profile.name.givenName,
-        lastName: profile.name.familyName,
-        image: profile.photos[0].value
+        const newUser = {
+            googleId: profile.id,
+            displayName: profile.displayName,
+            firstName: profile.name.givenName,
+            lastName: profile.name.familyName,
+            image: profile.photos[0].value
        }
 
        try {
@@ -21,7 +21,7 @@ module.exports = function(passport) {
             if(user) {
                 done(null, user)
             } 
-            //to add new user
+            //to add new user can log with google
             // else {
             //     user = await User.create(newUser)
             //     done(null, user)
