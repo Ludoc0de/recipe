@@ -1,6 +1,6 @@
- // "start": "npm run dev"
+// "start": "npm run dev"
 
- //set require, get app, routes and path
+//set require, get app, routes and path
 const express = require('express');
 const app = express();
 const PORT = 3100;
@@ -36,6 +36,8 @@ app.use(
         })
     })
 )
+
+//passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
