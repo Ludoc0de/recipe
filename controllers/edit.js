@@ -14,17 +14,28 @@ module.exports = {
     },
     //Create article 
     createArticle: async (req, res)=>{
-        const recipe = new RecipesArticle(
-            { 
-                title: req.body.title, 
-                article:req.body.article
-            });
-        try {
-                await recipe.save();
-                res.redirect('/')
-        } catch (error) {
-            if(error) return res.status(500).send(error);
-            res.redirect('/');
-        }
+        try{
+            await RecipesArticle.create(
+                {
+                    title: req.body.title,
+                    article:req.body.article
+                })
+                res.redirect('/edit')
+            }catch(err){
+                if(error) return res.status(500).send(error);
+                res.redirect('/edit');
+            }
+        // const recipe = new RecipesArticle(
+        //     { 
+        //         title: req.body.title, 
+        //         article:req.body.article
+        //     });
+        // try {
+        //         await recipe.save();
+        //         res.redirect('/')
+        // } catch (error) {
+        //     if(error) return res.status(500).send(error);
+        //     res.redirect('/');
+        // }
     }
 }
