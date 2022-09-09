@@ -8,32 +8,36 @@ module.exports = {
         const id = req.params.id;
         try{
             const recipes = await
-            RecipesArticle.find()
+            await RecipesArticle.find()
             res.render('update.ejs', {recipe: recipes, idArticle: id})
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
     },
     //Update recipe title, article
-    updateArticle: (req, res)=>{
-       const id = req.params.id;
-        RecipesArticle.findByIdAndUpdate(id,
-            {
-                title: req.body.title,
-                article: req.body.article
-            },
-            err => {
-                if (err) return res.status(500).send(err);
-                res.redirect("/edit");
-            });
+    updateArticle: async (req, res)=>{
+        const id = req.params.id;
+        try{ 
+            await RecipesArticle.findByIdAndUpdate(id,
+                {
+                    title: req.body.title,
+                    article: req.body.article
+                })
+                res.redirect('/edit');
+        }catch(error){
+            if(error) return res.status(500).send(error);
+            res.redirect('/edit');
+        }
     },
     //Delete recipe
-    deleteArticle: (req, res) => {
+    deleteArticle: async (req, res) => {
         const id = req.params.id;
-        RecipesArticle.findByIdAndRemove(
-            id, err => {
-            if (err) return res.send(500, err);
+        try{
+            await RecipesArticle.findByIdAndRemove(id)
             res.redirect("/edit");
-        });
+        }catch(error){
+            if(error) return res.status(500).send(error);
+            res.redirect('/edit');
+        }
     }
 }
