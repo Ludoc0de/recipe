@@ -10,21 +10,23 @@
 </head>
 <body>
     <header>
-        <h1>Mes recettes !</h1>
-        <a href="/auth/google">
-            login
-        </a>
+        <h1 class="header-title">Mes recettes !</h1>
+        <nav class="nav">
+            <a class="nav__link" href="/auth/google">
+                login
+            </a>
+        </nav>
     </header>
-    <section>
+    <section class="recipe-prv">
         <% for (let i=0; i<recipe.length; i++) {%>
-            <section class="recipe-prv">
-                <img class="recipe-prv__img">
-                <h2 class="recipe-prv__heading">
-                    <a href="/recipe/<%= recipe[i]._id %>" class="edit">
-                        <h2 class="title"><%= recipe[i].title %></h2>
-                    </a>
-                </h2>
-            </section>
+        <div>
+            <img class="recipe-prv__img">
+            <h2 class="recipe-prv__heading">
+                <a href="/recipe/<%= recipe[i]._id %>" class="edit">
+                    <h2 class="title"><%= recipe[i].title %></h2>
+                </a>
+            </h2>
+        </div>
         <% } %>
     </section>
     <!-- edit page -->
