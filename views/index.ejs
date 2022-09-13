@@ -11,15 +11,22 @@
 <body>
     <header>
         <h1 class="header-title">Mes recettes !</h1>
-        <nav class="nav">
-            <a class="nav__link" href="/auth/google">
-                login
-            </a>
+        <img class="hero-prv__img">
+        <nav>
+            <a class="nav__link" href="/auth/google">login</a>
         </nav>
     </header>
+    <section class="hero-prv">
+        <div class="hero-prv__subSection">
+            <h2>Mes créations</h2>
+            <p>patissier du dimanche, je vous révèle les divagations de mes pensées sucrée.</p>
+        </div>
+        <img class="hero-prv__img">
+    </section>
+
     <section class="recipe-prv">
         <% for (let i=0; i<recipe.length; i++) {%>
-        <div>
+        <div class="recipe-prv__subSection">
             <img class="recipe-prv__img">
             <h2 class="recipe-prv__heading">
                 <a href="/recipe/<%= recipe[i]._id %>" class="edit">
