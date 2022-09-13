@@ -11,30 +11,34 @@
 <body>
     <header>
         <h1 class="header-title">Mes recettes !</h1>
-        <img class="hero-prv__img">
+        <img class="hero-prv__img" >
         <nav>
-            <a class="nav__link" href="/auth/google">login</a>
+            <a class="nav__link" href="/auth/google">Login</a>
+            <a class="nav__link" href="#">Contact</a>
+            
         </nav>
     </header>
     <section class="hero-prv">
         <div class="hero-prv__subSection">
-            <h2>Mes créations</h2>
-            <p>patissier du dimanche, je vous révèle les divagations de mes pensées sucrée.</p>
+            <h2 class="hero-prv__title">Mes créations</h2>
+            <p class="hero-prv__text">Pâtissier du dimanche, je vous révèle les divagations de mes pensées sucrées.</p>
         </div>
-        <img class="hero-prv__img">
+        <img class="hero-prv__img" src="/images/macaron.png">
     </section>
-
     <section class="recipe-prv">
-        <% for (let i=0; i<recipe.length; i++) {%>
-        <div class="recipe-prv__subSection">
-            <img class="recipe-prv__img">
-            <h2 class="recipe-prv__heading">
-                <a href="/recipe/<%= recipe[i]._id %>" class="edit">
-                    <h2 class="title"><%= recipe[i].title %></h2>
-                </a>
-            </h2>
+        <h2 class="recipe-title">Dernières recettes</h2>
+        <div class="recipe-section">
+            <% for (let i=0; i<recipe.length; i++) {%>
+            <div class="recipe-subSection">
+                <img class="recipe-subSection__img">
+                <h2 class="recipe-subSection__heading">
+                    <a href="/recipe/<%= recipe[i]._id %>" class="recipe-subSection__link">
+                        <h2 class="recipe-subSection__title"><%= recipe[i].title %></h2>
+                    </a>
+                </h2>
+            </div>
+            <% } %>
         </div>
-        <% } %>
     </section>
     <!-- edit page -->
     <!-- <form action="/" method="POST">
