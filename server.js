@@ -3,7 +3,6 @@
 //set require, get app, routes and path
 const express = require('express');
 const app = express();
-const PORT = 3100;
 const mongoose = require('mongoose');
 const connectDB = require('./config/database');
 const homeRoutes =require('./routes/home');
@@ -50,4 +49,4 @@ app.use('/update', updateRoutes)
 
 
 //start server
-app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
+app.listen(process.env.PORT, ()=> console.log(`Server is running !`)) 
