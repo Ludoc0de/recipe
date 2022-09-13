@@ -5,22 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/SASSWORKSHOP/styles.css ">
     <title>Mes recettes</title>
 </head>
 <body>
-    <h1>Mes recettes !</h1>
-    <a href="/auth/google">
-        login
-    </a>
-    <% for (let i=0; i<recipe.length; i++) {%>
-        <section>
-            <a href="/recipe/<%= recipe[i]._id %>" class="edit">
-                <h2 class="title"><%= recipe[i].title %></h2>
-            </a>
-            <br>
-        </section>
-    <% } %>
+    <header>
+        <h1>Mes recettes !</h1>
+        <a href="/auth/google">
+            login
+        </a>
+    </header>
+    <section>
+        <% for (let i=0; i<recipe.length; i++) {%>
+            <section class="recipe-prv">
+                <img class="recipe-prv__img">
+                <h2 class="recipe-prv__heading">
+                    <a href="/recipe/<%= recipe[i]._id %>" class="edit">
+                        <h2 class="title"><%= recipe[i].title %></h2>
+                    </a>
+                </h2>
+            </section>
+        <% } %>
+    </section>
     <!-- edit page -->
     <!-- <form action="/" method="POST">
         <input type="text" placeholder="title" name="title">
