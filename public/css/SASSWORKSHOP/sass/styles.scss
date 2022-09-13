@@ -1,6 +1,6 @@
 // @import "libs/mixins.scss";
 
-$container: 1800px;
+$container: 1600px;
 $white-color: #fff;
 $fwhite-color: #FFF9EC;
 $black-color: #06090E;
@@ -16,4 +16,38 @@ body {
     background-color: $white-color;
     color: $black-color;
     // @include fontDefault;
+}
+
+//
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 1.5em;
+}
+
+.recipe-prv {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1.5em;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 18em;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: $fwhite-color;
+}
+
+img {
+    width: 100%;
+    height: 14em;
+    border-radius: 1em;
+    background-color: $pink-color;
 }
