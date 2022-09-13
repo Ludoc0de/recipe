@@ -1,5 +1,19 @@
+// @import "libs/mixins.scss";
+
+$container: 1800px;
+$white-color: #fff;
+$fwhite-color: #FFF9EC;
+$black-color: #06090E;
+$pink-color: #FF729F;
+$alert-color: #f02b00;
+$transparent-color: transparent;
+
 body {
-    background-color: pink;
-    color: green;
-    font-size: 4em;
+    width: calc(100% - 4em);
+    max-width: $container;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $white-color;
+    color: $black-color;
+    // @include fontDefault;
 }

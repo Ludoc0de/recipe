@@ -1,7 +1,10 @@
 body {
-  background-color: pink;
-  color: green;
-  font-size: 4em;
+  width: calc(100% - 4em);
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  color: #06090E;
 }
 
 /*# sourceMappingURL=styles.css.map */
