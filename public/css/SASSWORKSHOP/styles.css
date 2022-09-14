@@ -42,10 +42,10 @@ nav {
   margin-left: 1em;
   text-decoration: none;
   color: black;
-  transition: 0.5s ease;
+  transition: all 0.4s ease;
 }
 .nav__link:hover {
-  transition: 0.5s ease;
+  transition: all 0.4s ease;
   color: #8B4278;
 }
 
@@ -60,7 +60,8 @@ nav {
 }
 
 .recipe-title {
-  font-size: 4em;
+  font-size: 3.5em;
+  color: #8B4278;
 }
 
 .recipe-section {
@@ -84,6 +85,16 @@ nav {
   height: 14em;
   border-radius: 0.5em;
   background-color: #8B4278;
+}
+
+.recipe-subSection__link {
+  text-decoration: none;
+  color: black;
+  transition: all 0.4s ease;
+}
+.recipe-subSection__link:hover {
+  transition: all 0.4s ease;
+  color: #8B4278;
 }
 
 /*# sourceMappingURL=styles.css.map */

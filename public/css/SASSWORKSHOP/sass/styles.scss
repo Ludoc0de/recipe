@@ -1,4 +1,4 @@
-// @import "libs/mixins.scss";
+@import "libs/mixins.scss";
 
 $container: 1400px;
 $white-color: #fff;
@@ -54,11 +54,9 @@ nav {
     margin-left:1em;
     text-decoration: none;
     color: black;
-    transition: 0.5s ease;
+    @include transitionEffect;
     &:hover{
-        //add a mixin linkhover
-        transition: 0.5s ease;
-        color:$violet-color;
+        @include linkHover;
     }
 }
 
@@ -73,7 +71,8 @@ nav {
 }
 
 .recipe-title{
-    font-size: 4em;
+    font-size: 3.5em;
+    color: $violet-color;
 }
 
 .recipe-section {
@@ -98,4 +97,14 @@ nav {
     height: 14em;
     border-radius: 0.5em;
     background-color: $violet-color;
+}
+
+.recipe-subSection__link {
+    text-decoration: none;
+    color: black;
+    @include transitionEffect;
+
+    &:hover {
+        @include linkHover;
+    }
 }
