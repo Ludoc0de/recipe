@@ -23,9 +23,9 @@
         <div class="recipe-section">
             <% for (let i=0; i<recipe.length; i++) {%>
             <div class="recipe-subSection">
-                <img class="recipe-subSection__img">
                 <h2 class="recipe-subSection__title">
                     <a href="/recipe/<%= recipe[i]._id %>" class="recipe-subSection__link">
+                        <img class="recipe-subSection__img">
                         <%= recipe[i].title %>
                     </a>
                 </h2>
