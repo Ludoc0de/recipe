@@ -1,4 +1,4 @@
-//cloudinary middleware, get image from the site
+//cloudinary middleware, to upload image url from the site
 const cloudinary = require("cloudinary").v2;
 
 require("dotenv").config({ path: "./config/.env" });
