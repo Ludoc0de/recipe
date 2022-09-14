@@ -15,7 +15,6 @@
         <nav>
             <a class="nav__link" href="/auth/google">Login</a>
             <a class="nav__link" href="#">Contact</a>
-            
         </nav>
     </header>
     <section class="hero-prv">
@@ -28,16 +27,16 @@
         <img class="hero-prv__img" src="/images/macaron.png">
     </section>
     <section class="recipe-prv">
-        <h2 class="recipe-heading<">Dernières recettes</h2>
+        <h2 class="recipe-heading">Dernières recettes</h2>
         <div class="recipe-section">
             <% for (let i=0; i<recipe.length; i++) {%>
             <div class="recipe-subSection">
                 <img class="recipe-subSection__img">
-                <p class="recipe-subSection__title">
+                <h2 class="recipe-subSection__title">
                     <a href="/recipe/<%= recipe[i]._id %>" class="recipe-subSection__link">
                         <%= recipe[i].title %>
                     </a>
-                </p>
+                </h2>
             </div>
             <% } %>
         </div>
