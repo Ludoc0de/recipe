@@ -1,5 +1,7 @@
 //Edit controllers to models
 const RecipesArticle = require('../models/recipesArticle')
+//get cloudinary middleware
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
     //Display all recipes
@@ -15,9 +17,14 @@ module.exports = {
     //Create article 
     createArticle: async (req, res)=>{
         try{
+            // Upload image to cloudinary
+            const result = await cloudinary.uploader.upload(req.file.path);
+            console.log(result);
             await RecipesArticle.create(
                 {
                     title: req.body.title,
+                    image: result.secure_url,
+                    cloudinaryId: result.public_id,
                     article:req.body.article
                 })
             res.redirect('/edit')
