@@ -18,7 +18,7 @@ header {
   padding: 1.5em;
 }
 
-.header-title {
+.header-heading {
   width: 8em;
 }
 
@@ -39,6 +39,7 @@ nav {
 
 .nav__link {
   font-size: 1.4em;
+  font-weight: bold;
   margin-left: 1em;
   text-decoration: none;
   color: black;
@@ -49,7 +50,7 @@ nav {
   color: #8B4278;
 }
 
-.hero-prv__title {
+.hero-prv__heading {
   font-size: 6em;
   color: #8B4278;
 }
@@ -59,7 +60,7 @@ nav {
   font-size: 3em;
 }
 
-.recipe-title {
+.recipe-heading {
   font-size: 3.5em;
   color: #8B4278;
 }

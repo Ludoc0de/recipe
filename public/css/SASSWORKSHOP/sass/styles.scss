@@ -30,7 +30,7 @@ header {
     padding: 1.5em;
 }
 
-.header-title {
+.header-heading {
     width: 8em;
 }
 
@@ -51,6 +51,7 @@ nav {
 
 .nav__link {
     font-size: 1.4em;
+    font-weight: bold;
     margin-left:1em;
     text-decoration: none;
     color: black;
@@ -60,7 +61,7 @@ nav {
     }
 }
 
-.hero-prv__title {
+.hero-prv__heading {
     font-size: 6em;
     color: $violet-color;
 }
@@ -70,7 +71,7 @@ nav {
     font-size: 3em;
 }
 
-.recipe-title{
+.recipe-heading {
     font-size: 3.5em;
     color: $violet-color;
 }
@@ -89,7 +90,6 @@ nav {
     width: 18em;
     padding: 1em;
     border-radius: 0.5em;
-    // background-color: $alice-color;
 }
 
 .recipe-subSection__img {
@@ -103,7 +103,6 @@ nav {
     text-decoration: none;
     color: black;
     @include transitionEffect;
-
     &:hover {
         @include linkHover;
     }
