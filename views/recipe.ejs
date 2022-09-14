@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/SASSWORKSHOP/styles.css ">
     <title>Mes recettes</title>
 </head>
 
 <body>
-    <section>
-        <h1>test</h1>
+    <section class="recipe-prv">
         <% for (let i=0; i<recipe.length; i++) {%>
             <% if (recipe[i]._id==idArticle) { %>
-                <h2 class="title">
+                <h2 class="recipe-heading">
                     <%= recipe[i].title %>
                 </h2>
                 <p>
@@ -23,8 +22,8 @@
                 </p>
             <% } %>
         <% } %>
+        <a href="/" class="cancel">Retour</a>
     </section>
-    <a href="/" class="cancel">Back</a>
     <script src="/js/main.js"></script>
 </body>
 

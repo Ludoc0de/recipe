@@ -5,25 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/SASSWORKSHOP/styles.css ">
     <title>Mes recettes</title>
 </head>
 <body>
-    <section>
-        <h2>Admin</h2>
-        <a href="/auth/logout">
-            logout
-        </a>
+    <header>
+        <h1 class="header-heading">Admin</h1>
+        <img class="hero-prv__img">
+        <nav>
+            <a class="nav__link"  href="/auth/logout">Logout</a>
+        </nav>
+    </header>
+    <section class="recipe-prv">
         <% for (let i=0; i<recipe.length; i++) {%>
-            <section>
+            <div class="recipe-section">
                 <a href="/update/<%= recipe[i]._id %>" class="edit">
                     <h2 class="title">
                         Edit: <%= recipe[i].title %>
                     </h2>
                 </a>
                 <br>
-            </section>
+            </div>
             <% } %>
+
+            <!-- <h2 class="recipe-heading">Dernières recettes</h2>
+            <div class="recipe-section">
+                <% for (let i=0; i<recipe.length; i++) {%>
+                    <div class="recipe-subSection">
+                        <img class="recipe-subSection__img">
+                        <h2 class="recipe-subSection__title">
+                            <a href="/recipe/<%= recipe[i]._id %>" class="recipe-subSection__link">
+                                <%= recipe[i].title %>
+                            </a>
+                        </h2>
+                    </div>
+                    <% } %>
+            </div> -->
+
     </section>
     <section>
         <h2>Post new article</h2>
