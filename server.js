@@ -15,6 +15,8 @@ const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 const { request } = require('express');
+const layout = require('express-ejs-layouts');
+const expressEjsLayouts = require('express-ejs-layouts');
 require('./config/passport')(passport)
 
 //Connect to Mongo with Mongoose
@@ -24,6 +26,7 @@ connectDB()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
+app.use(expressEjsLayouts);
 //session middleware, keep login after refresh
 app.use(
     session({
