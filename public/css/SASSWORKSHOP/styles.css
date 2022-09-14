@@ -17,6 +17,11 @@ section {
   box-shadow: none;
 }
 
+.container {
+  max-width: 1400px;
+  width: 100%;
+}
+
 nav .brand-logo, .sidenav-trigger {
   color: #8B4278;
 }
@@ -45,22 +50,21 @@ nav .brand-logo, .sidenav-trigger {
 }
 
 .hero-prv__img {
-  width: 80%;
+  width: 60%;
   border-radius: 1em;
 }
 
 .hero-prv__heading {
-  font-size: 6em;
-  color: #8B4278;
+  font-size: 4.5em;
 }
 
 .hero-prv__text {
-  width: 80%;
-  font-size: 3em;
+  width: 70%;
+  font-size: 2.5em;
 }
 
 .recipe-heading {
-  font-size: 3.5em;
+  font-size: 3em;
   color: #8B4278;
 }
 
