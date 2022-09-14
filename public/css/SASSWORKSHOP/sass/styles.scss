@@ -22,12 +22,27 @@ section {
     padding: 1.5em;
 }
 
-//
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5em;
+.header-prev {
+    background-color: $transparent-color;
+    color: $violet-color;
+    box-shadow: none;
+}
+
+nav .brand-logo, .sidenav-trigger {
+    color: $violet-color;
+}
+
+.nav__link {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-left: 1em;
+    text-decoration: none;
+    color: black;
+    @include transitionEffect;
+
+    &:hover {
+        @include linkHover;
+    }
 }
 
 .header-heading {
@@ -43,22 +58,6 @@ header {
 .hero-prv__img {
     width:80%;
     border-radius: 1em;
-}
-
-nav {
-    width: 14em;
-}
-
-.nav__link {
-    font-size: 1.4em;
-    font-weight: bold;
-    margin-left:1em;
-    text-decoration: none;
-    color: black;
-    @include transitionEffect;
-    &:hover{
-        @include linkHover;
-    }
 }
 
 .hero-prv__heading {
