@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1 class="header-title">Mes recettes !</h1>
+        <h1 class="header-heading">Mes recettes !</h1>
         <img class="hero-prv__img" >
         <nav>
             <a class="nav__link" href="/auth/google">Login</a>
@@ -20,22 +20,24 @@
     </header>
     <section class="hero-prv">
         <div class="hero-prv__subSection">
-            <h2 class="hero-prv__title">Mes créations</h2>
-            <p class="hero-prv__text">Pâtissier du dimanche, je vous révèle les divagations de mes pensées sucrées.</p>
+            <h2 class="hero-prv__heading">Mes créations</h2>
+            <p class="hero-prv__text">
+                Pâtissier du dimanche, je vous révèle les divagations de mes pensées sucrées.
+            </p>
         </div>
         <img class="hero-prv__img" src="/images/macaron.png">
     </section>
     <section class="recipe-prv">
-        <h2 class="recipe-title">Dernières recettes</h2>
+        <h2 class="recipe-heading<">Dernières recettes</h2>
         <div class="recipe-section">
             <% for (let i=0; i<recipe.length; i++) {%>
             <div class="recipe-subSection">
                 <img class="recipe-subSection__img">
-                <h2 class="recipe-subSection__heading">
+                <p class="recipe-subSection__title">
                     <a href="/recipe/<%= recipe[i]._id %>" class="recipe-subSection__link">
-                        <h2 class="recipe-subSection__title"><%= recipe[i].title %></h2>
+                        <%= recipe[i].title %>
                     </a>
-                </h2>
+                </p>
             </div>
             <% } %>
         </div>
