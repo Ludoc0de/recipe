@@ -5,9 +5,8 @@
                 <h2 class="recipe-heading">
                     <%= recipe[i].title %>
                 </h2>
-                <p>
-                    <%= recipe[i].article %>
-                </p>
+                <img class="img-fluid" src="<%= recipe[i].image%>">
+                <p><%= recipe[i].article %></p>
             <% } %>
         <% } %>
         <a href="/" class="cancel">Retour</a>
