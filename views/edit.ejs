@@ -13,7 +13,8 @@
     </section>
     <section>
         <h4>Post new article</h4>
-        <form action="/edit" method="POST">
+        <!-- add enctype to upload img -->
+        <form action="/edit" enctype="multipart/form-data" method="POST">
                 <div class="input-field">
                     <input type="text" name="title">
                     <label for="title">Title</label>
@@ -25,6 +26,18 @@
                         <textarea name="article" ></textarea>
                     </div>
                 </div>
+
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" id="imageUpload" name="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <!-- <label for="imgUpload" class="form-label">Image</label> -->
+                <!-- <input type="file" class="form-control" id="imageUpload" name="file"> -->
                 <div class="row">
                     <input type="submit" value="Save" class="btn">
                     <a href="/edit" class="btn orange">Cancel</a>
