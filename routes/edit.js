@@ -9,6 +9,7 @@ const { userAuth } = require('../middleware/auth')
 
 //Route to the controllers
 router.get('/', userAuth, editController.getEdit)
-router.post('/', upload.single("file"), editController.createArticle)
+//upload one or more images
+router.post('/', upload.array("file"), editController.createArticle)
 
 module.exports = router
