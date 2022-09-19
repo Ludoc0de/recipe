@@ -8,7 +8,11 @@
                             <input type="text" name="title" value="<%= recipe[i].title %>">
                             <label for="title">Edit title</label>
                         </div>
-                        <img class="img-fluid" src="<%= recipe[i].image%>">
+
+                        <% for (let j=0; j<recipe.length; j++) {%>
+                            <img class="img-fluid" src="<%= recipe[i].image[j]%>">
+                        <% } %>
+                        
                         <div class="row">
                             <div class="input-field">
                                 <h5>Edit your recipe:</h5>
