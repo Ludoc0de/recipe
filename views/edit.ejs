@@ -1,11 +1,11 @@
 <body>
     <section class="recipe-prv">
         <h2>Edit articles</h2>
-        <% for (let i=0; i<recipe.length; i++) {%>
+        <% for(let item of recipe) {%>
             <div class="recipe-section">
-                <a href="/update/<%= recipe[i]._id %>" class="edit">
+                <a href="/update/<%= item._id %>" class="edit">
                     <h4 class="title">
-                        <%= recipe[i].title %>
+                        <%= item.title %>
                     </h4>
                 </a>
             </div>

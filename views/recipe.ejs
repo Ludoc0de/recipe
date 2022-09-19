@@ -1,12 +1,14 @@
 <body>
     <section class="recipe-prv">
-        <% for (let i=0; i<recipe.length; i++) {%>
-            <% if (recipe[i]._id==idArticle) { %>
+        <% for(let item of recipe) {%>
+            <% if (item._id==idArticle) { %>
                 <h2 class="recipe-heading">
-                    <%= recipe[i].title %>
+                    <%= item.title %>
                 </h2>
-                <img class="img-fluid" src="<%= recipe[i].image%>">
-                <p><%- recipe[i].article %></p>
+                <% for (let img of item.image) {%>
+                    <img class="img-fluid" src="<%= img%>">
+                <% } %>
+                <p><%- item.article %></p>
             <% } %>
         <% } %>
         <a href="/" class="cancel">Retour</a>

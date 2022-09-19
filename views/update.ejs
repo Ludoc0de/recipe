@@ -9,8 +9,8 @@
                             <label for="title">Edit title</label>
                         </div>
 
-                        <% for (let j=0; j<recipe.length; j++) {%>
-                            <img class="img-fluid" src="<%= item.image[j]%>">
+                        <% for (let img of item.image) {%>
+                            <img class="img-fluid" src="<%= img%>">
                         <% } %>
                         
                         <div class="row">

@@ -11,12 +11,12 @@
     <section class="recipe-prv">
         <h2 class="recipe-heading">Dernières recettes</h2>
         <div class="recipe-section">
-            <% for (let i=0; i<recipe.length; i++) {%>
+            <% for(let item of recipe) {%>
             <div class="recipe-subSection">
                 <h2 class="recipe-subSection__title">
-                    <a href="/recipe/<%= recipe[i]._id %>" class="recipe-subSection__link">
-                        <img class="recipe-subSection__img img-fluid" src="<%= recipe[i].image%>">
-                        <%= recipe[i].title %>
+                    <a href="/recipe/<%= item._id %>" class="recipe-subSection__link">
+                        <img class="recipe-subSection__img img-fluid" src="<%= item.image%>">
+                        <%= item.title %>
                     </a>
                 </h2>
             </div>
