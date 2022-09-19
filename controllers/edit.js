@@ -15,15 +15,24 @@ module.exports = {
         }
     },
     //Create article 
-    createArticle: async (req, res)=>{
+     createArticle: async (req, res)=>{
         try{
-            // Upload image
-            const result = await cloudinary.uploader.upload(req.file.path);
+            // Upload array images
+            let resultImage = []
+            let resultId = []
+            const files = req.files
+            for (let file of files){
+                //loop the results cause can have more than 1 images path
+                const results = await cloudinary.uploader.upload(file.path);
+                //push each one in the []
+                resultImage.push(results.secure_url)
+                resultId.push(results.public_id)
+            }
             await RecipesArticle.create(
                 {
                     title: req.body.title,
-                    image: result.secure_url,
-                    cloudinaryId: result.public_id,
+                    image: resultImage,
+                    cloudinaryId: resultId,
                     article:req.body.article,
                 })
             res.redirect('/edit')
