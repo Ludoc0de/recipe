@@ -6,9 +6,9 @@
                     <%= item.title %>
                 </h2>
                 <% for (let img of item.image) {%>
-                    <img class="img-fluid" src="<%= img%>">
+                    <img class="recipe-img img-fluid" src="<%= img%>">
                 <% } %>
-                <p><%- item.article %></p>
+                <p class="recipe-text"><%- item.article %></p>
             <% } %>
         <% } %>
         <a href="/" class="cancel">Retour</a>
