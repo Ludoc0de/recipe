@@ -1,28 +1,28 @@
 <body>
     <section>
-            <% for (let i=0; i<recipe.length; i++) {%>
-                <% if (recipe[i]._id==idArticle) { %>
-                    <h4>Edit article: "<%= recipe[i].title %>"</h4>
-                    <form action="/update/<%= recipe[i]._id %>" method="POST">
+            <% for(let item of recipe) {%>
+                <% if (item._id==idArticle) { %>
+                    <h4>Edit article: "<%= item.title %>"</h4>
+                    <form action="/update/<%= item._id %>" method="POST">
                         <div class="input-field">
-                            <input type="text" name="title" value="<%= recipe[i].title %>">
+                            <input type="text" name="title" value="<%= item.title %>">
                             <label for="title">Edit title</label>
                         </div>
 
                         <% for (let j=0; j<recipe.length; j++) {%>
-                            <img class="img-fluid" src="<%= recipe[i].image[j]%>">
+                            <img class="img-fluid" src="<%= item.image[j]%>">
                         <% } %>
                         
                         <div class="row">
                             <div class="input-field">
                                 <h5>Edit your recipe:</h5>
-                                <textarea name="article"><%= recipe[i].article %></textarea>
+                                <textarea name="article"><%= item.article %></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <input type="submit" value="Save" class="btn">
                             <a href="/edit" class="btn orange">Cancel</a>
-                            <a href="/update/remove/<%= recipe[i]._id %>" class="btn red">Delete</a>
+                            <a href="/update/remove/<%= item._id %>" class="btn red">Delete</a>
                         </div>
                     </form>
                 <% } %>
