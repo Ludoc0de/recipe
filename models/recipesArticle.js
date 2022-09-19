@@ -5,14 +5,14 @@ const recipeSchema = new mongoose.Schema({
         type:String,
         required: true
     },
-    image: {
+    image: [{
+        type: String,
+        require: true
+    }],
+    cloudinaryId: [{
         type: String,
         require: true,
-    },
-    cloudinaryId: {
-        type: String,
-        require: true,
-    },
+    }],
     article:{
         type:String,
         required: true
