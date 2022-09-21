@@ -3,7 +3,7 @@
             <% for(let item of recipe) {%>
                 <% if (item._id==idArticle) { %>
                     <h4>Edit article: "<%= item.title %>"</h4>
-                    <form action="/update/<%= item._id %>" method="POST">
+                    <form action="/update/<%= item._id %>" enctype="multipart/form-data" method="POST">
                         <div class="input-field">
                             <input type="text" name="title" value="<%= item.title %>">
                             <label for="title">Edit title</label>
@@ -12,6 +12,15 @@
                         <% for (let img of item.image) {%>
                             <img class="img-fluid" src="<%= img%>">
                         <% } %>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" id="imageUpload" name="file" multiple/>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            </div>
+                        </div>
                         
                         <div class="row">
                             <div class="input-field">
