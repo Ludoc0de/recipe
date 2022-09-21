@@ -9,6 +9,16 @@
                             <label for="title">Edit title</label>
                         </div>
 
+                        <div class="row">
+                            <div class="input-field">
+                                <select id="status" name="status">
+                                    <option value="draft" selected>Draft</option>
+                                    <option value="public">Public</option>
+                                </select>
+                                <label for="status">Status</label>
+                            </div>
+                        </div>
+
                         <% for (let img of item.image) {%>
                             <img class="img-fluid" src="<%= img%>">
                         <% } %>
