@@ -7,8 +7,7 @@ module.exports = {
     //Display all recipes
     getEdit: async (req, res) => {
         try{
-            const recipes = await
-            RecipesArticle.find()
+            const recipes = await RecipesArticle.find()
             res.render('edit.ejs', {recipe: recipes})
         } catch(error) {
             if(error) return res.status(500).send(error)
