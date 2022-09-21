@@ -1,6 +1,8 @@
 //Put controllers to models
 const recipesArticle = require('../models/recipesArticle');
-const RecipesArticle = require('../models/recipesArticle')
+const RecipesArticle = require('../models/recipesArticle');
+//get cloudinary middleware
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
     // Display id recipe
@@ -34,10 +36,12 @@ module.exports = {
         const id = req.params.id;
         try{
             //
-            let recipe = await RecipesArticle.findByIdRemove(id);
-            //check if its work, delete img from cloudinary
-            // await cloudinary.uploader.destroy(recipe.cloudinaryId);
-            // await recipe.remove();
+            let recipe = await RecipesArticle.findById(id);
+            console.log(recipe.cloudinaryId)
+            //delete img from cloudinary
+            await cloudinary.uploader.destroy(recipe.cloudinaryId);
+            //delete recipe article
+            await recipe.remove();
             res.redirect("/edit");
         }catch(error){
             if(error) return res.status(500).send(error);
