@@ -33,7 +33,11 @@ module.exports = {
     deleteArticle: async (req, res) => {
         const id = req.params.id;
         try{
-            await RecipesArticle.findByIdAndRemove(id)
+            //
+            let recipe = await RecipesArticle.findByIdRemove(id);
+            //check if its work, delete img from cloudinary
+            // await cloudinary.uploader.destroy(recipe.cloudinaryId);
+            // await recipe.remove();
             res.redirect("/edit");
         }catch(error){
             if(error) return res.status(500).send(error);
