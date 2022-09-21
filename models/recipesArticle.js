@@ -7,7 +7,7 @@ const recipeSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'Draft',
+        default: 'draft',
     enum: ['draft', 'public'],
   } ,
     image: [{
