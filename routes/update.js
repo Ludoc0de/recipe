@@ -10,7 +10,8 @@ const { userAuth } = require('../middleware/auth')
 
 //Route to the controllers
 router.get('/:id', userAuth, updateController.getUpdate)
-router.post('/:id',  upload.array("file"), updateController.updateArticle)
+//router.post('/:id',  upload.array("file"), updateController.updateArticle)
+router.put('/:id',  upload.array("file"), updateController.updateArticle)
 router.get('/remove/:id',updateController.deleteArticle)
 
 module.exports = router
