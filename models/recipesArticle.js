@@ -5,6 +5,11 @@ const recipeSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    status: {
+        type: String,
+        default: 'Draft',
+    enum: ['draft', 'public'],
+  } ,
     image: [{
         type: String,
         require: true
