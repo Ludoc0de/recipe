@@ -16,7 +16,7 @@ module.exports = {
             if(error) return res.status(500).send(error)
         }
     },
-    //Update recipe title, article, image
+    //Update recipe title, article
     // updateArticle: async (req, res)=>{
     //     const id = req.params.id;
     //     try{ 
@@ -31,6 +31,37 @@ module.exports = {
     //         res.redirect('/edit');
     //     }
     // },
+
+    // Update recipe title, article, images
+    // updateArticle: async (req, res)=>{
+    //     const id = req.params.id;
+    //     try{
+    //         // Upload array images
+    //         let resultImage = []
+    //         let resultId = []
+    //         const files = req.files
+    //         for (let file of files){
+    //             //loop the results cause can have more than 1 images path
+    //             const results = await cloudinary.uploader.upload(file.path);
+    //             //push each one in the []
+    //             resultImage.push(results.secure_url)
+    //             resultId.push(results.public_id)
+    //         }
+    //         await RecipesArticle.findByIdAndUpdate(id,
+    //             {
+    //                 title: req.body.title,
+    //                 image: resultImage,
+    //                 cloudinaryId: resultId,
+    //                 article:req.body.article,
+    //             })
+    //         res.redirect('/edit')
+    //     }catch(error){
+    //         if(error) return res.status(500).send(error);
+    //         res.redirect('/edit');
+    //     }
+    // },
+
+    // work on put
     updateArticle: async (req, res)=>{
         const id = req.params.id;
         try{
@@ -48,8 +79,8 @@ module.exports = {
             await RecipesArticle.findByIdAndUpdate(id,
                 {
                     title: req.body.title,
-                    image: resultImage,
-                    cloudinaryId: resultId,
+                    $set: {image: resultImage},
+                    $set: {cloudinaryId: resultId},
                     article:req.body.article,
                 })
             res.redirect('/edit')
@@ -58,6 +89,7 @@ module.exports = {
             res.redirect('/edit');
         }
     },
+
     //Delete recipe
     deleteArticle: async (req, res) => {
         const id = req.params.id;
