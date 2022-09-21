@@ -30,6 +30,7 @@ module.exports = {
             await RecipesArticle.create(
                 {
                     title: req.body.title,
+                    status: req.body.status,
                     image: resultImage,
                     cloudinaryId: resultId,
                     article:req.body.article,

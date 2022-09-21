@@ -58,6 +58,7 @@ module.exports = {
             await RecipesArticle.findByIdAndUpdate(id,
                 {
                     title: req.body.title,
+                    status: req.body.status,
                     image: resultImage,
                     cloudinaryId: resultId,
                     article:req.body.article,
