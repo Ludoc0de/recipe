@@ -16,16 +16,43 @@ module.exports = {
             if(error) return res.status(500).send(error)
         }
     },
-    //Update recipe title, article
+    //Update recipe title, article, image
+    // updateArticle: async (req, res)=>{
+    //     const id = req.params.id;
+    //     try{ 
+    //         await RecipesArticle.findByIdAndUpdate(id,
+    //             {
+    //                 title: req.body.title,
+    //                 article: req.body.article
+    //             })
+    //             res.redirect('/edit');
+    //     }catch(error){
+    //         if(error) return res.status(500).send(error);
+    //         res.redirect('/edit');
+    //     }
+    // },
     updateArticle: async (req, res)=>{
         const id = req.params.id;
-        try{ 
+        try{
+            // Upload array images
+            let resultImage = []
+            let resultId = []
+            const files = req.files
+            for (let file of files){
+                //loop the results cause can have more than 1 images path
+                const results = await cloudinary.uploader.upload(file.path);
+                //push each one in the []
+                resultImage.push(results.secure_url)
+                resultId.push(results.public_id)
+            }
             await RecipesArticle.findByIdAndUpdate(id,
                 {
                     title: req.body.title,
-                    article: req.body.article
+                    image: resultImage,
+                    cloudinaryId: resultId,
+                    article:req.body.article,
                 })
-                res.redirect('/edit');
+            res.redirect('/edit')
         }catch(error){
             if(error) return res.status(500).send(error);
             res.redirect('/edit');
@@ -35,11 +62,14 @@ module.exports = {
     deleteArticle: async (req, res) => {
         const id = req.params.id;
         try{
-            //
+            //find recipe by id
             let recipe = await RecipesArticle.findById(id);
-            console.log(recipe.cloudinaryId)
-            //delete img from cloudinary
-            await cloudinary.uploader.destroy(recipe.cloudinaryId);
+            //delete images from cloudinary
+            const cloudIds = recipe.cloudinaryId
+            for (let cloudId of cloudIds){
+                //loop cause can have more than 1 images path
+                await cloudinary.uploader.destroy(cloudId);
+            }
             //delete recipe article
             await recipe.remove();
             res.redirect("/edit");
