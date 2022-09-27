@@ -20,8 +20,7 @@
     <!-- section poster des commentaires -->
     <section>
         <h4>Laisser un commentaire</h4>
-        <!-- add enctype to upload img -->
-        <form action="/user" enctype="multipart/form-data" method="POST">
+        <form action="/comment" method="POST">
             <div class="row">
                 <div class="input-field">
                     <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
@@ -39,7 +38,12 @@
             </div>
             <div class="row">
                 <input type="submit" value="Envoyer" class="btn">
-                <a href="/" class="btn orange">Annuler</a>
+                <!-- back on this recipe post if click cancel-->
+                <% for(let item of recipe) {%>
+                    <% if (item._id==idArticle) { %>
+                    <a href="/recipe/<%= item._id %>" class="btn orange">Annuler</a>
+                    <% } %>
+                <% } %>
             </div>
         </form>
     </section>
