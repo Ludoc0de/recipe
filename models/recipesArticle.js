@@ -12,11 +12,11 @@ const recipeSchema = new mongoose.Schema({
   } ,
     image: [{
         type: String,
-        require: true
+        required: true
     }],
     cloudinaryId: [{
         type: String,
-        require: true,
+        required: true,
     }],
     article:{
         type:String,
@@ -24,7 +24,7 @@ const recipeSchema = new mongoose.Schema({
     },
     date:{
         type:Date,
-        defaut:Date.now
+        default:Date.now
     }
 })
 module.exports = mongoose.model('RecipesArticle', recipeSchema, 'recipesArticles');
