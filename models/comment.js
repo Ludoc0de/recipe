@@ -7,15 +7,15 @@ const commentSchema = new mongoose.Schema({
     },
     name: {
         type: String,
-        default: 'draft',
+        required: true
     } ,
-    mail:{
+    email:{
         type:String,
         required: true
     },
-    date:{
-        type:Date,
-        defaut:Date.now
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 })
-module.exports = mongoose.model('comment', commentSchema);
+module.exports = mongoose.model('UserComment', commentSchema);
