@@ -13,6 +13,36 @@
         <% } %>
         <a href="/" class="cancel">Retour</a>
     </section>
+    <!-- section des commentaires -->
+    <section>
+    </section>
+
+    <!-- section poster des commentaires -->
+    <section>
+        <h4>Laisser un commentaire</h4>
+        <!-- add enctype to upload img -->
+        <form action="/user" enctype="multipart/form-data" method="POST">
+            <div class="row">
+                <div class="input-field">
+                    <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
+                    <h5>Commentaire:</h5>
+                    <textarea name="comment" required></textarea>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="text" name="name" required>
+                <label for="title">Nom</label>
+            </div>
+            <div class="input-field">
+                <input type="email" name="email" required>
+                <label for="title">Mail</label>
+            </div>
+            <div class="row">
+                <input type="submit" value="Envoyer" class="btn">
+                <a href="/" class="btn orange">Annuler</a>
+            </div>
+        </form>
+    </section>
     <script src="/js/main.js"></script>
 </body>
 
