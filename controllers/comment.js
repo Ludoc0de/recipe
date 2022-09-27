@@ -1,28 +1,31 @@
 //Comment controllers to models
-const RecipesArticle = require('../models/recipesArticle')
+const UserComment = require('../models/comment')
 
 module.exports = {
     //Display all comment
     getComment: async (req, res) => {
         try{
-            const recipes = await RecipesArticle.find()
-            res.render('edit.ejs', {recipe: recipes})
+            const comments = await UserComment.find()
+            res.render('recipe.ejs', {comment: comments})
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
     },
     //Create comment
      comment: async (req, res)=>{
+        console.log(req.body)
         try{
-            await RecipesArticle.create(
+            await UserComment.create(
                 {
+                    comment:req.body.comment,
                     name: req.body.name,
-                    comment:req.body.comment
+                    email: req.body.email,
+                    createdAt: req.body.createdAt
                 })
-            res.redirect('/edit')
+            res.redirect('/')
         }catch(error){
             if(error) return res.status(500).send(error);
-            res.redirect('/edit');
+            res.redirect('/');
         }
     }
 }
