@@ -5,8 +5,7 @@ module.exports = {
     // Display all recipes
     getIndex: async (req, res) => {
         try{
-            const recipes = await
-            RecipesArticle.find()
+            const recipes = await RecipesArticle.find({ status: "public"})
             res.render('index.ejs', {recipe: recipes})
         } catch(error) {
             if(error) return res.status(500).send(error)

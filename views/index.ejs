@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title>Mes recettes</title>
-</head>
 <body>
-    <h1>Mes recettes !</h1>
-    <a href="/auth/google">
-        login
-    </a>
-    <% for (let i=0; i<recipe.length; i++) {%>
-        <section>
-            <a href="/recipe/<%= recipe[i]._id %>" class="edit">
-                <h2 class="title"><%= recipe[i].title %></h2>
-            </a>
-            <br>
-        </section>
-    <% } %>
+    <section class="hero-prv">
+        <div class="hero-prv__subSection">
+            <h2 class="hero-prv__heading">Mes créations</h2>
+            <p class="hero-prv__text">
+                Pâtissier du dimanche, je vous révèle les divagations de mes pensées sucrées.
+            </p>
+        </div>
+        <img class="hero-prv__img" src="/images/macaron.png">
+    </section>
+    <section class="recipe-prv">
+        <h2 class="recipe-heading">Dernières recettes</h2>
+        <div class="recipe-section">
+            <% for(let item of recipe) {%>
+            <div class="recipe-subSection">
+                <h2 class="recipe-subSection__title">
+                    <a href="/recipe/<%= item._id %>" class="recipe-subSection__link">
+                        <img class="recipe-subSection__img img-fluid" src="<%= item.image[0]%>">
+                        <%= item.title %>
+                    </a>
+                </h2>
+            </div>
+            <% } %>
+        </div>
+    </section>
     <!-- edit page -->
     <!-- <form action="/" method="POST">
         <input type="text" placeholder="title" name="title">

@@ -1,31 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title>Mes recettes</title>
-</head>
-
 <body>
     <section>
-        <h2>Admin</h2>
-            <% for (let i=0; i<recipe.length; i++) {%>
-                <% if (recipe[i]._id==idArticle) { %>
-                    <form action="/update/<%= recipe[i]._id %>" method="POST">
-                        <input type="text" value="<%= recipe[i].title %>" name="title">
-                        <textarea rows="6" cols="50" name="article"><%= recipe[i].article %></textarea>
-                        <button type="submit" class="confirm">Update</button>
-                        <a href="/edit" class="cancel">Cancel</a>
-                        <a href="/update/remove/<%= recipe[i]._id %>" class="delete">Delete</a>
+            <% for(let item of recipe) {%>
+                <% if (item._id==idArticle) { %>
+                    <h4>Edit article: "<%= item.title %>"</h4>
+                    <form action="/update/<%= item._id %>" enctype="multipart/form-data" method="POST">
+                        <div class="input-field">
+                            <input type="text" name="title" value="<%= item.title %>">
+                            <label for="title">Edit title</label>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field">
+                                <select id="status" name="status">
+                                    <option value="draft" selected>Draft</option>
+                                    <option value="public">Public</option>
+                                </select>
+                                <label for="status">Status</label>
+                            </div>
+                        </div>
+
+                        <% for (let img of item.image) {%>
+                            <img class="img-fluid" src="<%= img%>">
+                        <% } %>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" id="imageUpload" name="file" multiple/>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="input-field">
+                                <h5>Edit your recipe:</h5>
+                                <textarea name="article"><%= item.article %></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit" value="Save" class="btn">
+                            <a href="/edit" class="btn orange">Cancel</a>
+                            <a href="/update/remove/<%= item._id %>" class="btn red">Delete</a>
+                        </div>
                     </form>
                 <% } %>
             <% } %>
     </section>
-    <script src="/js/main.js"></script>
 </body>
 
 </html>

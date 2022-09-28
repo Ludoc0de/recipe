@@ -1,30 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title>Mes recettes</title>
-</head>
-
 <body>
-    <section>
-        <h1>test</h1>
-        <% for (let i=0; i<recipe.length; i++) {%>
-            <% if (recipe[i]._id==idArticle) { %>
-                <h2 class="title">
-                    <%= recipe[i].title %>
+    <section class="recipe-prv">
+        <% for(let item of recipe) {%>
+            <% if (item._id==idRecipe) { %>
+                <h2 class="recipe-heading">
+                    <%= item.title %>
                 </h2>
-                <p>
-                    <%= recipe[i].article %>
-                </p>
+                <% for (let img of item.image) {%>
+                    <img class="recipe-img img-fluid" src="<%= img%>">
+                <% } %>
+                <p class="recipe-text"><%- item.article %></p>
             <% } %>
         <% } %>
+        <a href="/" class="cancel">Retour</a>
     </section>
-    <a href="/" class="cancel">Back</a>
+    <!-- comment -->
+    <section>
+        <h5>Vos commentaires</h5>
+            <% for(let item of comment) {%>
+                <h6><%= item.name %> <%= item.createdAt %></h6>
+                <p><%= item.comment %></p>
+            <% } %>
+    </section>
+
+    <!-- post comment -->
+    <section>
+        <h5>Laisser un commentaire</h5>
+        <!-- post the comment with the id on the page -->
+        <form action="/comment/<%= idRecipe%>" method="POST">
+            <div class="row">
+                <div class="input-field">
+                    <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
+                    <h5>Commentaire:</h5>
+                    <textarea name="comment" required></textarea>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="text" name="name" required>
+                <label for="name">Nom</label>
+            </div>
+            <div class="input-field">
+                <input type="email" name="email" required>
+                <label for="email">Mail</label>
+            </div>
+            <div class="row">
+                <input type="submit" value="Envoyer" class="btn">
+                <!-- back on this recipe post if click cancel-->
+                <% for(let item of recipe) {%>
+                    <% if (item._id==idRecipe) { %>
+                    <a href="/recipe/<%= item._id %>" class="btn orange">Annuler</a>
+                    <% } %>
+                <% } %>
+            </div>
+        </form>
+    </section>
     <script src="/js/main.js"></script>
 </body>
 

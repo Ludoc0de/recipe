@@ -1,0 +1,117 @@
+@import "libs/mixins.scss";
+
+$container: 1400px;
+$white-color: #fff;
+$alice-color: #e1e5ee;
+$black-color: #090505;
+$violet-color: #8B4278;
+$alert-color: #f02b00;
+$transparent-color: transparent;
+
+body {
+    width: calc(100% - 4em);
+    max-width: $container;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $white-color;
+    color: $black-color;
+    // @include fontDefault;
+}
+
+section {
+    padding: 1.5em;
+}
+
+.header-prev {
+    background-color: $transparent-color;
+    color: $violet-color;
+    box-shadow: none;
+}
+
+.header-prev__title {
+    font-size: 3em;
+}
+
+.container {
+    max-width: $container;
+    width: 100%;
+}
+
+nav .brand-logo, .sidenav-trigger {
+    color: $violet-color;
+}
+
+.nav__link {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-left: 1em;
+    text-decoration: none;
+    color: black;
+    @include transitionEffect;
+
+    &:hover {
+        @include linkHover;
+    }
+}
+
+.header-heading {
+    width: 8em;
+}
+
+.hero-prv {
+    display:flex;
+    justify-content: space-evenly;
+    margin: 4em 0em;
+}
+
+.hero-prv__img {
+    width:60%;
+    border-radius: 1em;
+}
+
+.hero-prv__heading {
+    font-size: 4.5em;
+}
+
+.hero-prv__text {
+    width:70%;
+    font-size: 2.5em;
+}
+
+.recipe-heading {
+    font-size: 3em;
+    color: $violet-color;
+}
+
+.recipe-section {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(4, 20em);
+    align-items:flex-end;
+}
+
+.recipe-subSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 21em;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.recipe-subSection__img {
+    width: 4.5em;
+    height: 4em;
+    border-radius: 0.2em;
+    background-color: $violet-color;
+}
+
+.recipe-subSection__link {
+    text-decoration: none;
+    color: black;
+    @include transitionEffect;
+    &:hover {
+        @include linkHover;
+    }
+}

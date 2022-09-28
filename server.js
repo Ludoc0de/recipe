@@ -3,12 +3,12 @@
 //set require, get app, routes and path
 const express = require('express');
 const app = express();
-const PORT = 3100;
 const mongoose = require('mongoose');
 const connectDB = require('./config/database');
 const homeRoutes =require('./routes/home');
 const recipeRoutes =require('./routes/recipe');
 const editRoutes =require('./routes/edit');
+const commentRoutes =require('./routes/comment');
 const authRoutes = require('./routes/auth');
 const updateRoutes = require('./routes/update');
 require('dotenv').config({path: './config/.env'});
@@ -16,6 +16,8 @@ const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 const { request } = require('express');
+const layout = require('express-ejs-layouts');
+const expressEjsLayouts = require('express-ejs-layouts');
 require('./config/passport')(passport)
 
 //Connect to Mongo with Mongoose
@@ -25,6 +27,7 @@ connectDB()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
+app.use(expressEjsLayouts);
 //session middleware, keep login after refresh
 app.use(
     session({
@@ -45,9 +48,10 @@ app.use(passport.session())
 app.use('/', homeRoutes)
 app.use('/recipe', recipeRoutes)
 app.use('/edit', editRoutes)
+app.use('/comment', commentRoutes)
 app.use('/auth', authRoutes)
 app.use('/update', updateRoutes)
 
 
 //start server
-app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
+app.listen(process.env.PORT, ()=> console.log(`Server is running !`)) 

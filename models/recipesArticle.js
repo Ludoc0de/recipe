@@ -5,13 +5,26 @@ const recipeSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    status: {
+        type: String,
+        default: 'draft',
+    enum: ['draft', 'public'],
+  } ,
+    image: [{
+        type: String,
+        required: true
+    }],
+    cloudinaryId: [{
+        type: String,
+        required: true,
+    }],
     article:{
         type:String,
         required: true
     },
     date:{
         type:Date,
-        defaut:Date.now
+        default:Date.now
     }
 })
 module.exports = mongoose.model('RecipesArticle', recipeSchema, 'recipesArticles');
