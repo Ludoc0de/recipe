@@ -12,7 +12,8 @@ module.exports = {
                     name: req.body.name,
                     email: req.body.email,
                 })
-            res.redirect('/')
+            //Redirect on the same page
+            res.redirect('/recipe/'+ req.params.id)
         }catch(error){
             if(error) return res.status(500).send(error);
             res.redirect('/');
