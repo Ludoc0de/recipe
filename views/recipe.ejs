@@ -1,7 +1,7 @@
 <body>
     <section class="recipe-prv">
         <% for(let item of recipe) {%>
-            <% if (item._id==idArticle) { %>
+            <% if (item._id==idRecipe) { %>
                 <h2 class="recipe-heading">
                     <%= item.title %>
                 </h2>
@@ -25,7 +25,8 @@
     <!-- post comment -->
     <section>
         <h5>Laisser un commentaire</h5>
-        <form action="/comment" method="POST">
+        <!-- post the comment with the id on the page -->
+        <form action="/comment/<%= idRecipe%>" method="POST">
             <div class="row">
                 <div class="input-field">
                     <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
@@ -45,7 +46,7 @@
                 <input type="submit" value="Envoyer" class="btn">
                 <!-- back on this recipe post if click cancel-->
                 <% for(let item of recipe) {%>
-                    <% if (item._id==idArticle) { %>
+                    <% if (item._id==idRecipe) { %>
                     <a href="/recipe/<%= item._id %>" class="btn orange">Annuler</a>
                     <% } %>
                 <% } %>
