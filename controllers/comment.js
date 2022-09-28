@@ -10,7 +10,7 @@ module.exports = {
                     comment:req.body.comment,
                     name: req.body.name,
                     email: req.body.email,
-                    //create the comment with recipe id where created
+                    //get the recipe id, comment visible only on this recipe
                     recipe: req.params.id
                 })
             //Redirect on the same page
