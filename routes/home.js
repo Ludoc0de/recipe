@@ -19,7 +19,7 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['profile']}
 //Google auth callback
 //GET /auth/google/callback
 router.get('/auth/google/callback', 
-    passport.authenticate('google', {failureRedirect: '/'}), homeController.editConnect)
+    passport.authenticate('google', {failureRedirect: '/'}), homeController.dashboardConnect)
 
 //Logout User
 //route /auth/logout
