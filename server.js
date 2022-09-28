@@ -9,7 +9,7 @@ const homeRoutes =require('./routes/home');
 // const recipeRoutes =require('./routes/recipe');
 const editRoutes =require('./routes/edit');
 const commentRoutes =require('./routes/comment');
-const authRoutes = require('./routes/auth');
+// const authRoutes = require('./routes/auth');
 const updateRoutes = require('./routes/update');
 require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
@@ -49,7 +49,7 @@ app.use('/', homeRoutes)
 // app.use('/recipe', recipeRoutes)
 app.use('/edit', editRoutes)
 app.use('/comment', commentRoutes)
-app.use('/auth', authRoutes)
+// app.use('/auth', authRoutes)
 app.use('/update', updateRoutes)
 
 
