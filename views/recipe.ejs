@@ -13,12 +13,16 @@
         <% } %>
         <a href="/" class="cancel">Retour</a>
     </section>
-    <!-- section des commentaires -->
+    <!-- comment -->
     <section>
         <h5>Vos commentaires</h5>
+            <% for(let item of comment) {%>
+                <h6><%= item.name %> <%= item.createdAt %></h6>
+                <p><%= item.comment %></p>
+            <% } %>
     </section>
 
-    <!-- section poster des commentaires -->
+    <!-- post comment -->
     <section>
         <h5>Laisser un commentaire</h5>
         <form action="/comment" method="POST">
