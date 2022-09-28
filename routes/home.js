@@ -7,6 +7,7 @@ const homeController = require('../controllers/home')
 
 //Route to the controllers
 // router.get('/', ensureGuest, homeController.getIndex)
-router.get('/', homeController.getIndex)
+router.get('/', homeController.getIndex);
+router.get('/recipe/:id', homeController.getRecipe);
 
 module.exports = router
