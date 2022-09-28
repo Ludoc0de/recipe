@@ -9,9 +9,9 @@ module.exports = {
         try{
             const recipes = await RecipesArticle.find();
             //get comments from the recipe id
-            const comments = await UserComment.find({recipes: id});
-            res.render('recipe.ejs', {recipe: recipes, idArticle: id, comment: comments})
-            // recipe, idArticle data from mongodb
+            const comments = await UserComment.find({recipe: id});
+            res.render('recipe.ejs', {recipe: recipes, idRecipe: id, comment: comments})
+            // idRecipe = id from recipeArticle id 
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
