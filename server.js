@@ -6,11 +6,8 @@ const app = express();
 const mongoose = require('mongoose');
 const connectDB = require('./config/database');
 const homeRoutes =require('./routes/home');
-// const recipeRoutes =require('./routes/recipe');
 const dashboardRoutes =require('./routes/dashboard');
 const commentRoutes =require('./routes/comment');
-// const authRoutes = require('./routes/auth');
-// const updateRoutes = require('./routes/update');
 require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
 const session = require('express-session')
@@ -46,11 +43,9 @@ app.use(passport.session())
 
 //Set Routes
 app.use('/', homeRoutes)
-// app.use('/recipe', recipeRoutes)
 app.use('/dashboard', dashboardRoutes)
 app.use('/comment', commentRoutes)
-// app.use('/auth', authRoutes)
-// app.use('/update', updateRoutes)
+
 
 
 //start server
