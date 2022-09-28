@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/database');
 const homeRoutes =require('./routes/home');
 // const recipeRoutes =require('./routes/recipe');
-const editRoutes =require('./routes/edit');
+const dashboardRoutes =require('./routes/dashboard');
 const commentRoutes =require('./routes/comment');
 // const authRoutes = require('./routes/auth');
 const updateRoutes = require('./routes/update');
@@ -47,7 +47,7 @@ app.use(passport.session())
 //Set Routes
 app.use('/', homeRoutes)
 // app.use('/recipe', recipeRoutes)
-app.use('/edit', editRoutes)
+app.use('/dashboard', dashboardRoutes)
 app.use('/comment', commentRoutes)
 // app.use('/auth', authRoutes)
 app.use('/update', updateRoutes)
