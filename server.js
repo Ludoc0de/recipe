@@ -10,7 +10,7 @@ const homeRoutes =require('./routes/home');
 const dashboardRoutes =require('./routes/dashboard');
 const commentRoutes =require('./routes/comment');
 // const authRoutes = require('./routes/auth');
-const updateRoutes = require('./routes/update');
+// const updateRoutes = require('./routes/update');
 require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
 const session = require('express-session')
@@ -50,7 +50,7 @@ app.use('/', homeRoutes)
 app.use('/dashboard', dashboardRoutes)
 app.use('/comment', commentRoutes)
 // app.use('/auth', authRoutes)
-app.use('/update', updateRoutes)
+// app.use('/update', updateRoutes)
 
 
 //start server
