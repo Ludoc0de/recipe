@@ -26,8 +26,8 @@ module.exports = {
         }
     },
     //go to dashboard after login
-    editConnect: (req,res) => {
-        res.redirect('/edit')
+    dashboardConnect: (req,res) => {
+        res.redirect('/dashboard')
     },
     //logout
     logout: (req,res) => {
