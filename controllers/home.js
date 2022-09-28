@@ -24,6 +24,17 @@ module.exports = {
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
+    },
+    //go to dashboard after login
+    editConnect: (req,res) => {
+        res.redirect('/edit')
+    },
+    //logout
+    logout: (req,res) => {
+        req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+        });
     }
 
 }
