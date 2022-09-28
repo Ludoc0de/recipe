@@ -16,6 +16,11 @@ const commentSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    //get the id recipe
+    recipe: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Recipe"
     }
 })
 module.exports = mongoose.model('UserComment', commentSchema);
