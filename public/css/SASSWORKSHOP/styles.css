@@ -110,8 +110,9 @@ nav .brand-logo, .sidenav-trigger {
   margin-top: 4em;
 }
 
-.nav-item__link {
+.nav-footer__link {
   color: #8B4278;
+  margin-left: 0.5em;
   font-size: 2em;
 }
 
