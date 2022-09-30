@@ -14,7 +14,8 @@ router.post('/', upload.array("file"), dashboardController.createArticle)
 
 //update articles
 router.get('/update/:id', userAuth, dashboardController.getUpdate)
-router.post('/update/:id',  upload.array("file"), dashboardController.updateArticle)
+// router.post('/update/:id',  upload.array("file"), dashboardController.updateArticle)
+router.put('/update/:id',  upload.array("file"), dashboardController.updateArticle)
 router.get('/update/remove/:id',dashboardController.deleteArticle)
 
 module.exports = router
