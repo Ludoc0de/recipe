@@ -58,7 +58,6 @@ module.exports = {
         try{
             //find recipe by id
             let recipe = await RecipesArticle.findById(id);
-            console.log(recipe)
             //delete images from cloudinary
             const cloudIds = recipe.cloudinaryId
             for (let cloudId of cloudIds){
@@ -80,12 +79,8 @@ module.exports = {
                 {
                     title: req.body.title,
                     status: req.body.status,
-                    // $set: {image: resultImage},
-                    // $set: {cloudinaryId: resultId},
-                    // image: resultImage,
-                    // cloudinaryId: resultId,
-                    image: resultImage || recipe.image[0],
-                    cloudinaryId: resultId || recipe.cloudinaryId[0],
+                    image: resultImage,
+                    cloudinaryId: resultId,
                     article:req.body.article,
                 })
             res.redirect('/dashboard')

@@ -12,7 +12,6 @@ require('dotenv').config({path: './config/.env'});
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
-const methodOverride = require("method-override");
 const { request } = require('express');
 const layout = require('express-ejs-layouts');
 const expressEjsLayouts = require('express-ejs-layouts');
@@ -25,8 +24,6 @@ connectDB()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
-//Use forms for put / delete
-app.use(methodOverride("_method"));
 app.use(expressEjsLayouts);
 //session middleware, keep login after refresh
 app.use(
