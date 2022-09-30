@@ -13,12 +13,12 @@
         <div class="recipe-section">
             <% for(let item of recipe) {%>
             <div class="recipe-subSection">
-                <h2 class="recipe-subSection__title">
+                <h4 class="recipe-subSection__title center">
                     <a href="/recipe/<%= item._id %>" class="recipe-subSection__link">
                         <img class="recipe-subSection__img img-fluid" src="<%= item.image[0]%>">
                         <%= item.title %>
                     </a>
-                </h2>
+                </h4>
             </div>
             <% } %>
         </div>
