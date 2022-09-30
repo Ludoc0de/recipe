@@ -115,3 +115,12 @@ nav .brand-logo, .sidenav-trigger {
         @include linkHover;
     }
 }
+
+.footer-prev{
+    margin-top: 4em;
+}
+
+.nav-item__link {
+    color: $violet-color;
+    font-size: 2em;
+}
