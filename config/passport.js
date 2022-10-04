@@ -21,11 +21,11 @@ module.exports = function(passport) {
             if(user) {
                 done(null, user)
             } 
-            //to add new user can log with google
-            // else {
-            //     user = await User.create(newUser)
-            //     done(null, user)
-            // }
+            to add new user can log with google
+            else {
+                user = await User.create(newUser)
+                done(null, user)
+            }
        }catch (err) {
             console.error(err)
        }
