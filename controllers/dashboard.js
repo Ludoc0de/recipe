@@ -45,8 +45,7 @@ module.exports = {
     getUpdate: async (req, res) => {
         const id = req.params.id;
         try{
-            const recipes = await
-            await RecipesArticle.find()
+            const recipes = await RecipesArticle.find()
             res.render('update.ejs', {recipe: recipes, idArticle: id})
         } catch(error) {
             if(error) return res.status(500).send(error)
