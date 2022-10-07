@@ -132,13 +132,18 @@ nav .brand-logo, .sidenav-trigger {
 }
 
 .recipe-subSection__link {
-  text-decoration: none;
+  white-space: nowrap;
   color: black;
   transition: all 0.4s ease;
 }
 .recipe-subSection__link:hover {
   transition: all 0.4s ease;
   color: #8B4278;
+}
+.recipe-subSection__link p {
+  width: 5em;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .coment-prv, .coment-date {
