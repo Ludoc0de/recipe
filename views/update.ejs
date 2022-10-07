@@ -50,16 +50,12 @@
                                     <div class="input-field">
                                         <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
                                         <h5>Commentaire:</h5>
-                                        <textarea name="comment" required></textarea>
+                                        <textarea name="comment" ><%= item.comment %></textarea>
                                     </div>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="name" required>
+                                    <input type="text" name="name" value="<%= item.name %>">
                                     <label for="name">Nom</label>
-                                </div>
-                                <div class="input-field">
-                                    <input type="email" name="email" required>
-                                    <label for="email">Mail</label>
                                 </div>
                                 <div class="row">
                                     <input type="submit" value="Envoyer" class="btn">
