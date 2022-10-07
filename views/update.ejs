@@ -38,6 +38,40 @@
                                 <textarea name="article"><%= item.article %></textarea>
                             </div>
                         </div>
+                        <!-- work on it change 
+                            - idArticle to idRecipe, then do it in controllers too
+                        -->
+                        <!-- comment -->
+                        <section>
+                            <h5>Edit coments</h5>
+                            <% for(let item of comment) {%>
+                                <%= console.log(item) %>
+                                <% if (item._id==idArticle) { %>
+                            <!-- post the comment with the id on the page -->
+                            <form action="/dashboard/updateComment/<%= item._id %>" method="POST">
+                                <div class="row">
+                                    <div class="input-field">
+                                        <textarea name="comment" required><%= item.comment %></textarea>
+                                    </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" name="name"  value="<%= item.name %>"required>
+                                    <label for="name">Nom</label>
+                                </div>
+                                <div class="row">
+                                    <input type="submit" value="Save" class="btn">
+                                    <!-- back on this recipe post if click cancel-->
+                                    <% for(let item of recipe) {%>
+                                        <% if (item._id==idArticle) { %>
+                                            <a href="/recipe/<%= item._id %>" class="btn orange">Annuler</a>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                            </form>
+                            <% } %>
+                            <% } %>
+                        </section>
+                        <!-- work on it -->
                         <div class="row">
                             <input type="submit" value="Save" class="btn">
                             <a href="/dashboard" class="btn orange">Cancel</a>
