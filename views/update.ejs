@@ -1,7 +1,7 @@
 <body>
     <section>
             <% for(let item of recipe) {%>
-                <% if (item._id==idArticle) { %>
+                <% if (item._id==idRecipe) { %>
                     <h4>Edit article: "<%= item.title %>"</h4>
                     <form action="/dashboard/update/<%= item._id %>" enctype="multipart/form-data" method="POST">
                         <div class="input-field">
@@ -43,34 +43,37 @@
                         -->
                         <!-- comment -->
                         <section>
-                            <h5>Edit coments</h5>
+                            <h4>Edit comment</h4>
                             <% for(let item of comment) {%>
-                                <%= console.log(item) %>
-                                <% if (item._id==idArticle) { %>
-                            <!-- post the comment with the id on the page -->
-                            <form action="/dashboard/updateComment/<%= item._id %>" method="POST">
+                            <form action="/comment/<%= idRecipe%>" method="POST">
                                 <div class="row">
                                     <div class="input-field">
-                                        <textarea name="comment" required><%= item.comment %></textarea>
+                                        <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
+                                        <h5>Commentaire:</h5>
+                                        <textarea name="comment" required></textarea>
                                     </div>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="name"  value="<%= item.name %>"required>
+                                    <input type="text" name="name" required>
                                     <label for="name">Nom</label>
                                 </div>
+                                <div class="input-field">
+                                    <input type="email" name="email" required>
+                                    <label for="email">Mail</label>
+                                </div>
                                 <div class="row">
-                                    <input type="submit" value="Save" class="btn">
+                                    <input type="submit" value="Envoyer" class="btn">
                                     <!-- back on this recipe post if click cancel-->
                                     <% for(let item of recipe) {%>
-                                        <% if (item._id==idArticle) { %>
+                                        <% if (item._id==idRecipe) { %>
                                             <a href="/recipe/<%= item._id %>" class="btn orange">Annuler</a>
                                         <% } %>
                                     <% } %>
                                 </div>
                             </form>
                             <% } %>
-                            <% } %>
                         </section>
+ 
                         <!-- work on it -->
                         <div class="row">
                             <input type="submit" value="Save" class="btn">
