@@ -113,23 +113,18 @@ module.exports = {
     },
     //comments
      updateComments: async (req, res)=>{
-        console.log("comment")
-        // const id = req.params.id;
-        // try{
-        //     //find comments by id
-        //     let comment = await UserComment.findById(id);
-        //     await UserComment.findByIdAndUpdate(id,
-        //         {
-        //             comment:req.body.comment,
-        //             name: req.body.name,
-        //             //get the recipe id, comment visible only on this recipe
-        //             recipe: req.params.id
-        //         })
-        //     //Redirect on the same page
-        //     res.redirect('/recipe/'+ req.params.id)
-        // }catch(error){
-        //     if(error) return res.status(500).send(error);
-        //     res.redirect('/');
-        // }
+        const id = req.params.id;
+        try{
+            await UserComment.findByIdAndUpdate(id,
+                {
+                    comment:req.body.comment,
+                    name: req.body.name,
+                })
+            //Redirect on the same page
+            res.redirect('/dashboard')
+        }catch(error){
+            if(error) return res.status(500).send(error);
+            res.redirect('/dashboard');
+        }
     }
 }
