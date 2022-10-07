@@ -16,11 +16,15 @@ body {
     background-color: $white-color;
     color: $black-color;
     // @include fontDefault;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
 }
 
 section {
     padding: 1.5em;
 }
+
+
 
 .header-prev {
     background-color: $transparent-color;
@@ -30,6 +34,9 @@ section {
 
 .header-prev__title {
     font-size: 3em;
+    @include mobile-only {
+        letter-spacing: 0;
+    }
 }
 
 .container {
@@ -62,11 +69,19 @@ nav .brand-logo, .sidenav-trigger {
     display:flex;
     justify-content: space-evenly;
     margin: 4em 0em;
+    @include mobile-only {
+        flex-direction: column;
+        margin: 0em;
+    }
 }
 
 .hero-prv__img {
     width:60%;
     border-radius: 1em;
+    @include mobile-only {
+        width: 100%;
+        margin-top: 4em;
+    }
 }
 
 .hero-prv__heading {
@@ -76,6 +91,9 @@ nav .brand-logo, .sidenav-trigger {
 .hero-prv__text {
     width:70%;
     font-size: 2.5em;
+    @include mobile-only {
+        width: 100%;
+    }
 }
 
 .recipe-heading {
@@ -88,6 +106,16 @@ nav .brand-logo, .sidenav-trigger {
     gap: 2em;
     grid-template-columns: repeat(4, 20em);
     align-items:flex-end;
+    border-bottom-style: solid;
+    border-color: $violet-color;
+    border-width: 0.15em;
+
+    @include mobile-only {
+        gap: 0em;
+        margin: 2em 0em;
+        grid-template-columns: unset;
+        grid-template-rows:1fr;
+    }
 }
 
 .recipe-subSection {
