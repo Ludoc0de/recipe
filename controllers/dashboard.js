@@ -49,7 +49,7 @@ module.exports = {
             const recipes = await RecipesArticle.find();
             //get comments from the recipe id
             const comments = await UserComment.find({recipe: id});
-            res.render('update.ejs', {recipe: recipes, idArticle: id, comment: comments})
+            res.render('update.ejs', {recipe: recipes, idRecipe: id, comment: comments})
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
@@ -112,7 +112,6 @@ module.exports = {
         }
     },
     //comments
-    // Display id recipe 
     //do the get comment, create the route
     getComment: async (req, res) => {
         const id = req.params.id;
@@ -120,7 +119,7 @@ module.exports = {
             const recipes = await RecipesArticle.find();
             //get comments from the recipe id
             const comments = await UserComment.find({recipe: id});
-            res.render('update.ejs', {recipe: recipes, idArticle: id, comment: comments})
+            res.render('update.ejs', {recipe: recipes, idRecipe: id, comment: comments})
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
