@@ -2,6 +2,7 @@
 const cloudinary = require("../middleware/cloudinary");
 //Dashboard controllers to models
 const RecipesArticle = require('../models/recipesArticle')
+const UserComment = require('../models/comment')
 
 module.exports = {
     //Display all recipes
@@ -45,8 +46,10 @@ module.exports = {
     getUpdate: async (req, res) => {
         const id = req.params.id;
         try{
-            const recipes = await RecipesArticle.find()
-            res.render('update.ejs', {recipe: recipes, idArticle: id})
+            const recipes = await RecipesArticle.find();
+            //get comments from the recipe id
+            const comments = await UserComment.find({recipe: id});
+            res.render('update.ejs', {recipe: recipes, idArticle: id, comment: comments})
         } catch(error) {
             if(error) return res.status(500).send(error)
         }
@@ -107,5 +110,39 @@ module.exports = {
             if(error) return res.status(500).send(error);
             res.redirect('/dashboard');
         }
+    },
+    //comments
+    // Display id recipe 
+    //do the get comment, create the route
+    getComment: async (req, res) => {
+        const id = req.params.id;
+        try{
+            const recipes = await RecipesArticle.find();
+            //get comments from the recipe id
+            const comments = await UserComment.find({recipe: id});
+            res.render('update.ejs', {recipe: recipes, idArticle: id, comment: comments})
+        } catch(error) {
+            if(error) return res.status(500).send(error)
+        }
+    },
+     updateComments: async (req, res)=>{
+        console.log("comment")
+        // const id = req.params.id;
+        // try{
+        //     //find comments by id
+        //     let comment = await UserComment.findById(id);
+        //     await UserComment.findByIdAndUpdate(id,
+        //         {
+        //             comment:req.body.comment,
+        //             name: req.body.name,
+        //             //get the recipe id, comment visible only on this recipe
+        //             recipe: req.params.id
+        //         })
+        //     //Redirect on the same page
+        //     res.redirect('/recipe/'+ req.params.id)
+        // }catch(error){
+        //     if(error) return res.status(500).send(error);
+        //     res.redirect('/');
+        // }
     }
 }
