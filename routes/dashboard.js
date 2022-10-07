@@ -18,7 +18,7 @@ router.post('/update/:id',  upload.array("file"), dashboardController.updateArti
 router.get('/update/remove/:id',dashboardController.deleteArticle);
 
 //update coments
-router.get('/:id',  dashboardController.getComment)
+// router.get('/:id',  dashboardController.getComment)
 //router.post('/updateComments/:id', dashboardController.updateComments);
 
 module.exports = router
