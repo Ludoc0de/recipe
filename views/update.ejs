@@ -47,14 +47,12 @@
                 <% } %>
             <% } %>
     </section>
-    <!-- work on it change 
-        - idArticle to idRecipe, then do it in controllers too
-    -->
     <!-- comment -->
     <section>
         <h4>Edit comment</h4>
         <% for(let item of comment) {%>
-            <form action="/dashboard/updateComments/<%= idRecipe%>" method="POST">
+            <!-- get the comment id to update it -->
+            <form action="/dashboard/updateComments/<%= item._id%>" method="POST">
                 <div class="row">
                     <div class="input-field">
                         <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
@@ -78,8 +76,6 @@
             </form>
             <% } %>
     </section>
-    
-    <!-- work on it -->
 </body>
 
 </html>
