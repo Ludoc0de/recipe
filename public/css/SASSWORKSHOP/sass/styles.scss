@@ -101,6 +101,11 @@ nav .brand-logo, .sidenav-trigger {
     color: $violet-color;
 }
 
+.recipe-prv {
+    display: grid;
+    justify-content: center;
+}
+
 .recipe-section {
     display: grid;
     gap: 2em;
@@ -116,6 +121,31 @@ nav .brand-logo, .sidenav-trigger {
         grid-template-columns: unset;
         grid-template-rows:1fr;
     }
+}
+
+.recipe-pic{
+    display: grid;
+    grid-template-columns: 15em 1em 15em 1em 15em 1em 15em 1em 15em 1em;
+    row-gap: 2em;
+    align-items: end;
+    justify-content: center;
+    margin-bottom: 4em;
+}
+
+.recipe-img {
+    width: 15em;
+    height: 14em;
+    border-radius: 0.2em;
+}
+
+.recipe-title {
+    width:2em;
+    height: 2em;
+    position: relative;
+    top: 2.5em;
+        right: 4em;
+    color: $violet-color;
+    // background-color: $violet-color;
 }
 
 .recipe-subSection {
