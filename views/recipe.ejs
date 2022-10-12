@@ -8,10 +8,12 @@
                 <!-- <% for (let img of item.image) {%>
                     <img class="recipe-img img-fluid" src="<%= img%>">
                 <% } %> -->
-                <% for(let i=0; i<item.image.length;i++) {%>
-                    <img class="recipe-img img-fluid" src="<%= item.image[i]%>">
-                    <h6 class="recipe-title">image.<%- i+1 %></h6>
-                <% } %>
+                <div  class="recipe-pic">
+                    <% for(let i=0; i<item.image.length;i++) {%>
+                        <img class="recipe-img img-fluid" src="<%= item.image[i]%>">
+                        <h6 class="recipe-title">image.<%- i+1 %></h6>
+                    <% } %>
+                </div>
                 <p class="recipe-text"><%- item.article %></p>
             <% } %>
         <% } %>
