@@ -104,6 +104,9 @@ nav .brand-logo, .sidenav-trigger {
 .recipe-prv {
     display: grid;
     justify-content: center;
+    @include mobile-only {
+            width: 100%;
+        }
 }
 
 .recipe-section {
@@ -125,7 +128,7 @@ nav .brand-logo, .sidenav-trigger {
 
 .recipe-pic{
     display: grid;
-    grid-template-columns: 15em 1em 15em 1em 15em 1em 15em 1em 15em 1em;
+    grid-template-columns: repeat(8, 8em);
     row-gap: 2em;
     align-items: end;
     justify-content: center;
@@ -143,7 +146,7 @@ nav .brand-logo, .sidenav-trigger {
     height: 2em;
     position: relative;
     top: 2.5em;
-    right: 4em;
+    left: 2em;
     color: $violet-color;
 }
 
