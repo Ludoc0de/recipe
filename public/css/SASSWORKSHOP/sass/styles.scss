@@ -133,6 +133,9 @@ nav .brand-logo, .sidenav-trigger {
     align-items: end;
     justify-content: center;
     margin-bottom: 4em;
+    @include mobile-only {
+        grid-template-columns: unset;
+    }
 }
 
 .recipe-img {
@@ -148,6 +151,10 @@ nav .brand-logo, .sidenav-trigger {
     top: 2.5em;
     left: 2em;
     color: $violet-color;
+    @include mobile-only {
+        top: -2em;
+        left: 0;
+    }
 }
 
 .recipe-subSection {
