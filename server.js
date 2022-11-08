@@ -25,6 +25,10 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
 app.use(expressEjsLayouts);
+// increase default file limit size
+app.use(express.json({
+    limit:'10mb'
+}))
 //session middleware, keep login after refresh
 app.use(
     session({
