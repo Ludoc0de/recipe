@@ -1,5 +1,5 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const User = require('../models/User')
+const User = require('../models/user')
 
 module.exports = function(passport) {
     passport.use(new GoogleStrategy({
@@ -21,7 +21,7 @@ module.exports = function(passport) {
             if(user) {
                 done(null, user)
             } 
-            //to add new user can log with google
+            // to add new user can log with google
             // else {
             //     user = await User.create(newUser)
             //     done(null, user)

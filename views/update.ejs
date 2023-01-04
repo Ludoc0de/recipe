@@ -1,7 +1,7 @@
 <body>
     <section>
             <% for(let item of recipe) {%>
-                <% if (item._id==idArticle) { %>
+                <% if (item._id==idRecipe) { %>
                     <h4>Edit article: "<%= item.title %>"</h4>
                     <form action="/dashboard/update/<%= item._id %>" enctype="multipart/form-data" method="POST">
                         <div class="input-field">
@@ -20,7 +20,7 @@
                         </div>
 
                         <% for (let img of item.image) {%>
-                            <img class="img-fluid" src="<%= img%>">
+                            <img class="img-fluid recipe-img" src="<%= img%>">
                         <% } %>
                         <div class="file-field input-field">
                             <div class="btn">
@@ -45,6 +45,35 @@
                         </div>
                     </form>
                 <% } %>
+            <% } %>
+    </section>
+    <!-- comment -->
+    <section>
+        <h4>Edit comment</h4>
+        <% for(let item of comment) {%>
+            <!-- get the comment id to update it -->
+            <form action="/dashboard/updateComments/<%= item._id%>" method="POST">
+                <div class="row">
+                    <div class="input-field">
+                        <p>Les champs sont obligatoires.<br>Votre adresse e-mail ne sera pas publiée. </p>
+                        <h5>Commentaire:</h5>
+                        <textarea name="comment"><%= item.comment %></textarea>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="name" value="<%= item.name %>">
+                    <label for="name">Nom</label>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Envoyer" class="btn">
+                    <!-- back on this recipe post if click cancel-->
+                    <% for(let item of recipe) {%>
+                        <% if (item._id==idRecipe) { %>
+                            <a href="/recipe/<%= item._id %>" class="btn orange">Annuler</a>
+                        <% } %>
+                    <% } %>
+                </div>
+            </form>
             <% } %>
     </section>
 </body>

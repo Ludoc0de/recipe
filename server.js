@@ -49,4 +49,4 @@ app.use('/comment', commentRoutes)
 
 
 //start server
-app.listen(process.env.PORT, ()=> console.log(`Server is running !`)) 
+app.listen(process.env.PORT || PORT, ()=> console.log(`Server is running on ${process.env.PORT}!`)) 

@@ -5,9 +5,15 @@
                 <h2 class="recipe-heading">
                     <%= item.title %>
                 </h2>
-                <% for (let img of item.image) {%>
+                <!-- <% for (let img of item.image) {%>
                     <img class="recipe-img img-fluid" src="<%= img%>">
-                <% } %>
+                <% } %> -->
+                <div  class="recipe-pic">
+                    <% for(let i=0; i<item.image.length;i++) {%>
+                        <img class="recipe-img img-fluid" src="<%= item.image[i]%>">
+                        <h6 class="recipe-imgTitle">image.<%- i+1 %></h6>
+                    <% } %>
+                </div>
                 <p class="recipe-text"><%- item.article %></p>
             <% } %>
         <% } %>
@@ -15,10 +21,20 @@
     </section>
     <!-- comment -->
     <section>
-        <h5>Vos commentaires</h5>
+        <h5 class="coment-prv">Vos commentaires</h5>
             <% for(let item of comment) {%>
-                <h6><%= item.name %> <%= item.createdAt %></h6>
-                <p><%= item.comment %></p>
+                <!-- <h6><%= item.name %> <%= item.createdAt %></h6> -->
+                <h6 class="coment-name">
+                    <!-- format name to Name-->
+                    <% var name = item.name.charAt(0).toUpperCase() + item.name.substring(1).toLowerCase(); %>
+                    <%= name %>
+                    <small class="coment-date">
+                        <!-- format date with toISOString() and slice-->
+                        <% var frDate = item.createdAt.toISOString().slice(0,10).split("-").reverse().join("/"); %>
+                        <%= frDate %>
+                    </small>
+                </h6>
+                <p class="coment-texte"> <%= item.comment %></p>
             <% } %>
     </section>
 
