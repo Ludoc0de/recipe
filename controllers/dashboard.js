@@ -9,9 +9,6 @@ module.exports = {
   getDashboard: async (req, res) => {
     try {
       const recipes = await RecipesArticle.find();
-      res.cookie("isAuthenticated", {
-        value: true,
-      });
       res.render("dashboard.ejs", { recipe: recipes });
     } catch (error) {
       if (error) return res.status(500).send(error);
